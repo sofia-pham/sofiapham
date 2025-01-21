@@ -33,6 +33,7 @@ const Home = () => {
     if (window.innerWidth < 768) {
       screenScale = [1, 1, 1];
       screenPosition = [2.2, -3.05, -5];
+      // screenPosition = [2, -7, -5];
     } else {
       screenScale = [1, 1, 1];
       screenPosition = [2.2, -3.05, -5];
@@ -67,7 +68,7 @@ const Home = () => {
             scale={catScale}
             rotation={[0, 35, 0]}
           />
-          <Sky />
+          <Sky isRotating={isRotating} />
           <Room
             position={roomPosition}
             scale={roomScale}

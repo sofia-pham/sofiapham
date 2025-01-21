@@ -9,16 +9,16 @@ const Cat = ({ isRotating, ...props }) => {
   const { actions } = useAnimations(animations, ref);
 
   useEffect(() => {
-    // if (isRotating) {
-    //   actions["walking"].play();
-    // } else {
-    //   actions["walking"].stop();
-    // }
+    if (isRotating) {
+      actions["walking"]?.play();
+    } else {
+      actions["walking"]?.stop();
+    }
   }, [actions, isRotating]);
 
   return (
     <mesh {...props}>
-      <primitive object={scene} />
+      <primitive object={scene} ref={ref} />
     </mesh>
   );
 };
