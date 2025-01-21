@@ -8,6 +8,7 @@ import Cat from "../models/Cat";
 
 const Home = () => {
   const [isRotating, setIsRotating] = useState(false);
+  const [currentStage, setCurrentStage] = useState(1);
 
   // to make room look nice on all devices
   const adjustRoomForScreen = () => {
@@ -16,7 +17,7 @@ const Home = () => {
     let rotation = [0.1, -49.9, 0];
 
     if (window.innerWidth < 768) {
-      screenScale = [0.9, 0.9, 0.9];
+      screenScale = [1.2, 1.2, 1.2];
     } else {
       screenScale = [1, 1, 1];
     }
@@ -30,11 +31,12 @@ const Home = () => {
     let screenScale, screenPosition;
 
     if (window.innerWidth < 768) {
-      screenScale = [1.2, 1.2, 1.2];
-      screenPosition = [0, -1.5, 0];
+      screenScale = [1, 1, 1];
+      screenPosition = [2.2, -3.05, -5];
+      // screenPosition = [2, -7, -5];
     } else {
-      screenScale = [1.2, 1.2, 1.2];
-      screenPosition = [2, -2.8, -5];
+      screenScale = [1, 1, 1];
+      screenPosition = [2.2, -3.05, -5];
     }
 
     return [screenScale, screenPosition];
@@ -54,6 +56,7 @@ const Home = () => {
           <directionalLight position={[-10, 1, -4]} intensity={2} />{" "}
           {/* ambientLight lights up the scene equally, no need for position */}
           <ambientLight intensity={0.5} />
+          <spotLight position={[[4, 4, 4]]} angle={0.15} penumbra={1} />
           <hemisphereLight
             skyColor={"#b1e1ff"}
             groundColor={"#000000"}
@@ -65,13 +68,14 @@ const Home = () => {
             scale={catScale}
             rotation={[0, 35, 0]}
           />
-          <Sky />
+          <Sky isRotating={isRotating} />
           <Room
             position={roomPosition}
             scale={roomScale}
             rotation={roomRotation}
             isRotating={isRotating}
             setIsRotating={setIsRotating}
+            setCurrentStage={setCurrentStage}
           />
         </Suspense>
       </Canvas>
