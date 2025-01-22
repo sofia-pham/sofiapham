@@ -172,7 +172,7 @@ const Room = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
   ]);
 
   return (
-    <a.group ref={roomRef} {...props}>
+    <a.group {...props} ref={roomRef}>
       <mesh geometry={nodes.deskmat.geometry} material={materials.wood} />
       <mesh geometry={nodes.vase.geometry} material={materials["Mat.002"]}>
         <mesh
@@ -540,18 +540,17 @@ const Room = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
       />
       <mesh geometry={nodes.floor.geometry} material={materials.floor} />
       <mesh
+        geometry={nodes["table_-_leg"].geometry}
+        material={materials["desk -leg"]}
+      />
+      <mesh
         geometry={nodes["table_-_plank"].geometry}
         material={materials["table - plank"]}
-      >
-        <mesh
-          geometry={nodes["table_-_leg"].geometry}
-          material={materials["desk -leg"]}
-        />
-        <mesh
-          geometry={nodes["table_-_leg_bottom"].geometry}
-          material={materials["desk -leg"]}
-        />
-      </mesh>
+      />
+      <mesh
+        geometry={nodes["table_-_leg_bottom"].geometry}
+        material={materials["desk -leg"]}
+      />
       <mesh
         geometry={nodes["curtain_-_rod"].geometry}
         material={materials["curtain rod"]}
@@ -575,17 +574,15 @@ const Room = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
       <mesh
         geometry={nodes["window_-_glass"].geometry}
         material={materials["Material.007"]}
-        position={[-8.889, 6.829, 0.363]}
-        rotation={[Math.PI, 0, Math.PI]}
       />
       <mesh
         geometry={nodes["window_-_frame1"].geometry}
         material={materials.mat15}
       />
-      <mesh geometry={nodes["cup_-_handle"].geometry} material={materials.cup}>
+      <mesh geometry={nodes["cup_-_body"].geometry} material={materials.cup}>
         <mesh geometry={nodes.coaster.geometry} material={materials.coaster} />
         <mesh
-          geometry={nodes["cup_-_body"].geometry}
+          geometry={nodes["cup_-_handle"].geometry}
           material={materials.cup}
         />
       </mesh>
@@ -664,486 +661,6 @@ const Room = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
         material={materials["mat19.001"]}
       />
       <mesh
-        geometry={nodes.group11151369.geometry}
-        material={materials["mat23.005"]}
-      />
-      <mesh
-        geometry={nodes.group47713880.geometry}
-        material={materials["mat23.005"]}
-      />
-      <mesh
-        geometry={nodes.group47846800.geometry}
-        material={materials["mat11.002"]}
-      />
-      <mesh
-        geometry={nodes.group54598879.geometry}
-        material={materials["mat3.004"]}
-      />
-      <mesh
-        geometry={nodes.group56262870.geometry}
-        material={materials["mat23.005"]}
-      />
-      <mesh
-        geometry={nodes.group73605351.geometry}
-        material={materials["mat15.002"]}
-      />
-      <mesh
-        geometry={nodes.group79611238.geometry}
-        material={materials["mat17.007"]}
-      />
-      <mesh
-        geometry={nodes.group95314420.geometry}
-        material={materials["mat11.002"]}
-      />
-      <mesh
-        geometry={nodes.group109271366.geometry}
-        material={materials["mat23.005"]}
-      />
-      <mesh
-        geometry={nodes.group120898098.geometry}
-        material={materials["mat22.002"]}
-      />
-      <mesh
-        geometry={nodes.group191747226.geometry}
-        material={materials["mat23.005"]}
-      />
-      <mesh
-        geometry={nodes.group194524521.geometry}
-        material={materials["mat3.004"]}
-      />
-      <mesh
-        geometry={nodes.group229424706.geometry}
-        material={materials["mat23.005"]}
-      />
-      <mesh
-        geometry={nodes.group239182004.geometry}
-        material={materials["mat15.002"]}
-      />
-      <mesh
-        geometry={nodes.group246477310.geometry}
-        material={materials["mat17.007"]}
-      />
-      <mesh
-        geometry={nodes.group252333627.geometry}
-        material={materials["mat22.002"]}
-      />
-      <mesh
-        geometry={nodes.group287848248.geometry}
-        material={materials["mat15.002"]}
-      />
-      <mesh
-        geometry={nodes.group289168744.geometry}
-        material={materials["mat17.007"]}
-      />
-      <mesh
-        geometry={nodes.group310832378.geometry}
-        material={materials["mat15.002"]}
-      />
-      <mesh
-        geometry={nodes.group311705158.geometry}
-        material={materials["mat17.007"]}
-      />
-      <mesh
-        geometry={nodes.group332402059.geometry}
-        material={materials["mat11.002"]}
-      />
-      <mesh
-        geometry={nodes.group335831164.geometry}
-        material={materials["mat17.007"]}
-      />
-      <mesh
-        geometry={nodes.group358629412.geometry}
-        material={materials["mat23.005"]}
-      />
-      <mesh
-        geometry={nodes.group360414338.geometry}
-        material={materials["mat10.004"]}
-      />
-      <mesh
-        geometry={nodes.group367993755.geometry}
-        material={materials["mat23.005"]}
-      />
-      <mesh
-        geometry={nodes.group376269877.geometry}
-        material={materials["mat17.007"]}
-      />
-      <mesh
-        geometry={nodes.group377627692.geometry}
-        material={materials["mat23.005"]}
-      />
-      <mesh
-        geometry={nodes.group395313063.geometry}
-        material={materials["mat17.007"]}
-      />
-      <mesh
-        geometry={nodes.group417210971.geometry}
-        material={materials["mat22.002"]}
-      />
-      <mesh
-        geometry={nodes.group438055053.geometry}
-        material={materials["mat15.002"]}
-      />
-      <mesh
-        geometry={nodes.group458008891.geometry}
-        material={materials["mat21.006"]}
-      />
-      <mesh
-        geometry={nodes.group508965083.geometry}
-        material={materials["mat15.002"]}
-      />
-      <mesh
-        geometry={nodes.group563957055.geometry}
-        material={materials["mat10.004"]}
-      />
-      <mesh
-        geometry={nodes.group573210084.geometry}
-        material={materials["mat11.002"]}
-      />
-      <mesh
-        geometry={nodes.group587275507.geometry}
-        material={materials["mat23.005"]}
-      />
-      <mesh
-        geometry={nodes.group602345555.geometry}
-        material={materials["mat15.002"]}
-      />
-      <mesh
-        geometry={nodes.group602384715.geometry}
-        material={materials["mat17.007"]}
-      />
-      <mesh
-        geometry={nodes.group667732097.geometry}
-        material={materials["mat17.007"]}
-      />
-      <mesh
-        geometry={nodes.group675547103.geometry}
-        material={materials["mat23.005"]}
-      />
-      <mesh
-        geometry={nodes.group676590036.geometry}
-        material={materials["mat16.003"]}
-      />
-      <mesh
-        geometry={nodes.group676697694.geometry}
-        material={materials["mat21.006"]}
-      />
-      <mesh
-        geometry={nodes.group701415949.geometry}
-        material={materials["mat17.007"]}
-      />
-      <mesh
-        geometry={nodes.group704994766.geometry}
-        material={materials["mat11.002"]}
-      />
-      <mesh
-        geometry={nodes.group706968164.geometry}
-        material={materials["mat17.007"]}
-      />
-      <mesh
-        geometry={nodes.group713359564.geometry}
-        material={materials["mat11.002"]}
-      />
-      <mesh
-        geometry={nodes.group731708330.geometry}
-        material={materials["mat15.002"]}
-      />
-      <mesh
-        geometry={nodes.group740024917.geometry}
-        material={materials["mat15.002"]}
-      />
-      <mesh
-        geometry={nodes.group741402870.geometry}
-        material={materials["mat17.007"]}
-      />
-      <mesh
-        geometry={nodes.group761930540.geometry}
-        material={materials["mat16.003"]}
-      />
-      <mesh
-        geometry={nodes.group774251851.geometry}
-        material={materials["mat8.004"]}
-      />
-      <mesh
-        geometry={nodes.group833559944.geometry}
-        material={materials["mat13.002"]}
-      />
-      <mesh
-        geometry={nodes.group854105041.geometry}
-        material={materials["mat11.002"]}
-      />
-      <mesh
-        geometry={nodes.group886964551.geometry}
-        material={materials["mat15.002"]}
-      />
-      <mesh
-        geometry={nodes.group893749766.geometry}
-        material={materials["mat16.003"]}
-      />
-      <mesh
-        geometry={nodes.group897881202.geometry}
-        material={materials["mat16.003"]}
-      />
-      <mesh
-        geometry={nodes.group912049542.geometry}
-        material={materials["mat8.004"]}
-      />
-      <mesh
-        geometry={nodes.group935673430.geometry}
-        material={materials["mat8.004"]}
-      />
-      <mesh
-        geometry={nodes.group952295781.geometry}
-        material={materials["mat17.007"]}
-      />
-      <mesh
-        geometry={nodes.group961377794.geometry}
-        material={materials["mat21.006"]}
-      />
-      <mesh
-        geometry={nodes.group968331571.geometry}
-        material={materials["mat15.002"]}
-      />
-      <mesh
-        geometry={nodes.group1004135894.geometry}
-        material={materials["mat11.002"]}
-      />
-      <mesh
-        geometry={nodes.group1013654719.geometry}
-        material={materials["mat17.007"]}
-      />
-      <mesh
-        geometry={nodes.group1017920957.geometry}
-        material={materials["mat17.007"]}
-      />
-      <mesh
-        geometry={nodes.group1033487155.geometry}
-        material={materials["mat21.006"]}
-      />
-      <mesh
-        geometry={nodes.group1050079147.geometry}
-        material={materials["mat23.005"]}
-      />
-      <mesh
-        geometry={nodes.group1051984110.geometry}
-        material={materials["mat5.002"]}
-      />
-      <mesh
-        geometry={nodes.group1144869753.geometry}
-        material={materials["mat9.006"]}
-      />
-      <mesh
-        geometry={nodes.group1158745515.geometry}
-        material={materials["mat22.002"]}
-      />
-      <mesh
-        geometry={nodes.group1179872976.geometry}
-        material={materials["mat23.005"]}
-      />
-      <mesh
-        geometry={nodes.group1186992705.geometry}
-        material={materials["mat9.006"]}
-      />
-      <mesh
-        geometry={nodes.group1216547099.geometry}
-        material={materials["mat23.005"]}
-      />
-      <mesh
-        geometry={nodes.group1247630253.geometry}
-        material={materials["mat23.005"]}
-      />
-      <mesh
-        geometry={nodes.group1275655566.geometry}
-        material={materials["mat17.007"]}
-      />
-      <mesh
-        geometry={nodes.group1280736543.geometry}
-        material={materials["mat17.007"]}
-      />
-      <mesh
-        geometry={nodes.group1297143275.geometry}
-        material={materials["mat17.007"]}
-      />
-      <mesh
-        geometry={nodes.group1324414297.geometry}
-        material={materials["mat15.002"]}
-      />
-      <mesh
-        geometry={nodes.group1332034770.geometry}
-        material={materials["mat15.002"]}
-      />
-      <mesh
-        geometry={nodes.group1338682067.geometry}
-        material={materials["mat15.002"]}
-      />
-      <mesh
-        geometry={nodes.group1350575126.geometry}
-        material={materials["mat23.005"]}
-      />
-      <mesh
-        geometry={nodes.group1381102080.geometry}
-        material={materials["mat17.007"]}
-      />
-      <mesh
-        geometry={nodes.group1395154075.geometry}
-        material={materials["mat16.003"]}
-      />
-      <mesh
-        geometry={nodes.group1403669828.geometry}
-        material={materials["mat15.002"]}
-      />
-      <mesh
-        geometry={nodes.group1403985160.geometry}
-        material={materials["mat15.002"]}
-      />
-      <mesh
-        geometry={nodes.group1411416077.geometry}
-        material={materials["mat23.005"]}
-      />
-      <mesh
-        geometry={nodes.group1526395978.geometry}
-        material={materials["mat16.003"]}
-      />
-      <mesh
-        geometry={nodes.group1548294784.geometry}
-        material={materials["mat5.002"]}
-      />
-      <mesh
-        geometry={nodes.group1554204416.geometry}
-        material={materials["mat15.002"]}
-      />
-      <mesh
-        geometry={nodes.group1562485891.geometry}
-        material={materials["mat15.002"]}
-      />
-      <mesh
-        geometry={nodes.group1578493595.geometry}
-        material={materials["mat15.002"]}
-      />
-      <mesh
-        geometry={nodes.group1586564780.geometry}
-        material={materials["mat17.007"]}
-      />
-      <mesh
-        geometry={nodes.group1601213803.geometry}
-        material={materials["mat15.002"]}
-      />
-      <mesh
-        geometry={nodes.group1620621923.geometry}
-        material={materials["mat17.007"]}
-      />
-      <mesh
-        geometry={nodes.group1634298705.geometry}
-        material={materials["mat17.007"]}
-      />
-      <mesh
-        geometry={nodes.group1644871367.geometry}
-        material={materials["mat23.005"]}
-      />
-      <mesh
-        geometry={nodes.group1664409649.geometry}
-        material={materials["mat21.006"]}
-      />
-      <mesh
-        geometry={nodes.group1714365479.geometry}
-        material={materials["mat15.002"]}
-      />
-      <mesh
-        geometry={nodes.group1724716729.geometry}
-        material={materials["mat23.005"]}
-      />
-      <mesh
-        geometry={nodes.group1739615239.geometry}
-        material={materials["mat23.005"]}
-      />
-      <mesh
-        geometry={nodes.group1747962436.geometry}
-        material={materials["mat23.005"]}
-      />
-      <mesh
-        geometry={nodes.group1788593855.geometry}
-        material={materials["mat23.005"]}
-      />
-      <mesh
-        geometry={nodes.group1799134820.geometry}
-        material={materials["mat23.005"]}
-      />
-      <mesh
-        geometry={nodes.group1799644813.geometry}
-        material={materials["mat10.004"]}
-      />
-      <mesh
-        geometry={nodes.group1800416953.geometry}
-        material={materials["mat17.007"]}
-      />
-      <mesh
-        geometry={nodes.group1809112506.geometry}
-        material={materials["mat12.003"]}
-      />
-      <mesh
-        geometry={nodes.group1817044955.geometry}
-        material={materials["mat22.002"]}
-      />
-      <mesh
-        geometry={nodes.group1851189319.geometry}
-        material={materials["mat22.002"]}
-      />
-      <mesh
-        geometry={nodes.group1851977708.geometry}
-        material={materials["mat23.005"]}
-      />
-      <mesh
-        geometry={nodes.group1867655503.geometry}
-        material={materials.mat24}
-      />
-      <mesh
-        geometry={nodes.group1874588551.geometry}
-        material={materials["mat8.004"]}
-      />
-      <mesh
-        geometry={nodes.group1876175818.geometry}
-        material={materials["mat22.002"]}
-      />
-      <mesh
-        geometry={nodes.group1961792104.geometry}
-        material={materials["mat10.004"]}
-      />
-      <mesh
-        geometry={nodes.group1977161757.geometry}
-        material={materials["mat17.007"]}
-      />
-      <mesh
-        geometry={nodes.group2011638665.geometry}
-        material={materials["mat23.005"]}
-      />
-      <mesh
-        geometry={nodes.group2024160734.geometry}
-        material={materials["mat17.007"]}
-      />
-      <mesh
-        geometry={nodes.group2032200821.geometry}
-        material={materials["mat16.003"]}
-      />
-      <mesh
-        geometry={nodes.group2061932718.geometry}
-        material={materials["mat12.003"]}
-      />
-      <mesh
-        geometry={nodes.group2083473735.geometry}
-        material={materials["mat17.007"]}
-      />
-      <mesh
-        geometry={nodes.group2094616060.geometry}
-        material={materials["mat17.007"]}
-      />
-      <mesh
-        geometry={nodes.group2101908238.geometry}
-        material={materials["mat15.002"]}
-      />
-      <mesh
-        geometry={nodes.group2102640996.geometry}
-        material={materials["mat17.007"]}
-      />
-      <mesh
         geometry={nodes.group221591931.geometry}
         material={materials["mat16.007"]}
       />
@@ -1167,120 +684,75 @@ const Room = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
         geometry={nodes.group2019711482.geometry}
         material={materials["mat16.007"]}
       />
-      <mesh
-        geometry={nodes.image.geometry}
-        material={materials.image}
-        position={[4.368, 6.597, -6.618]}
-        rotation={[Math.PI / 2, 0, 0]}
-        scale={0.73}
-      />
+      <mesh geometry={nodes.image.geometry} material={materials.image} />
       <mesh
         geometry={nodes["image_(1)"].geometry}
         material={materials["image (1)"]}
-        position={[3.82, 6.462, -6.617]}
-        rotation={[Math.PI / 2, 0, 0]}
-        scale={0.729}
       />
       <mesh
         geometry={nodes["image_(3)"].geometry}
         material={materials["image (3)"]}
-        position={[4.387, 5.911, -6.62]}
-        rotation={[Math.PI / 2, 0, 0]}
-        scale={0.731}
       />
       <mesh
         geometry={nodes["image_(2)"].geometry}
         material={materials["image (2)"]}
-        position={[3.859, 5.473, -6.627]}
-        rotation={[Math.PI / 2, 0, 0]}
-        scale={0.549}
       />
       <mesh
         geometry={nodes["image_(4)"].geometry}
         material={materials["image (4)"]}
-        position={[3.565, 5.901, -6.601]}
-        rotation={[Math.PI / 2, 0, 0]}
-        scale={0.546}
       />
       <mesh
         geometry={nodes["image_(5)"].geometry}
         material={materials["image (5)"]}
-        position={[3.796, 4.736, -6.62]}
-        rotation={[Math.PI / 2, 0, 0]}
-        scale={0.728}
       />
       <mesh
         geometry={nodes["image_(6)"].geometry}
         material={materials["image (6)"]}
-        position={[4.367, 4.995, -6.618]}
-        rotation={[Math.PI / 2, 0, 0]}
-        scale={0.547}
       />
       <mesh
         geometry={nodes["image_(7)"].geometry}
         material={materials["image (7)"]}
-        position={[4.31, 4.304, -6.62]}
-        rotation={[Math.PI / 2, 0, 0]}
-        scale={0.796}
       />
       <mesh
         geometry={nodes.for_whiteboard.geometry}
         material={materials["for whiteboard"]}
-        position={[3.324, 5.111, -6.643]}
-        rotation={[Math.PI / 2, 0, 0]}
-        scale={2.954}
       />
       <mesh
         geometry={nodes["image_(9)"].geometry}
         material={materials["image (9)"]}
-        position={[-0.066, 5.224, -4.095]}
-        rotation={[1.545, 0, 0.324]}
-        scale={2.774}
       />
       <mesh
         geometry={nodes["image(8)"].geometry}
         material={materials["image(8)"]}
-        position={[-2.039, 7.059, -6.565]}
-        rotation={[Math.PI / 2, 0, 0]}
-        scale={5.432}
       >
-        <group
-          position={[0.567, 1.209, 1.236]}
-          rotation={[-Math.PI / 2, 0, 0]}
-          scale={0.184}
-        >
-          <mesh
-            geometry={nodes.mesh1788839726.geometry}
-            material={materials.mat20}
-          />
-          <mesh
-            geometry={nodes.mesh1788839726_1.geometry}
-            material={materials.mat9}
-          />
-          <mesh
-            geometry={nodes.mesh1788839726_2.geometry}
-            material={materials.mat16}
-          />
-          <mesh
-            geometry={nodes.mesh1788839726_3.geometry}
-            material={materials["mat4.001"]}
-          />
-          <mesh
-            geometry={nodes.mesh1788839726_4.geometry}
-            material={materials["mat21.003"]}
-          />
-          <mesh
-            geometry={nodes.mesh1788839726_5.geometry}
-            material={materials.mat23}
-          />
-        </group>
+        <mesh
+          geometry={nodes.mesh1788839726.geometry}
+          material={materials.mat20}
+        />
+        <mesh
+          geometry={nodes.mesh1788839726_1.geometry}
+          material={materials.mat9}
+        />
+        <mesh
+          geometry={nodes.mesh1788839726_2.geometry}
+          material={materials.mat16}
+        />
+        <mesh
+          geometry={nodes.mesh1788839726_3.geometry}
+          material={materials["mat4.001"]}
+        />
+        <mesh
+          geometry={nodes.mesh1788839726_4.geometry}
+          material={materials["mat21.003"]}
+        />
+        <mesh
+          geometry={nodes.mesh1788839726_5.geometry}
+          material={materials.mat23}
+        />
       </mesh>
       <mesh
         geometry={nodes["1721643869176"].geometry}
         material={materials["1721643869176"]}
-        position={[-2.256, 4.69, -4.281]}
-        rotation={[1.573, -0.006, -0.034]}
-        scale={1.532}
       />
       <mesh
         geometry={nodes.Node001.geometry}
@@ -1522,6 +994,11 @@ const Room = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
         material={materials.TissueBox}
       />
       <mesh geometry={nodes.TissueBox_2.geometry} material={materials.White} />
+      <mesh geometry={nodes.Cube002.geometry} material={materials.Material} />
+      <mesh
+        geometry={nodes.Cube002_1.geometry}
+        material={materials["Material.001"]}
+      />
       <mesh geometry={nodes.Cube007.geometry} material={materials.bookshelf} />
       <mesh
         geometry={nodes.Cube007_1.geometry}
@@ -1951,38 +1428,6 @@ const Room = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
         material={materials["mat21.022"]}
       />
       <mesh
-        geometry={nodes.mesh139018155.geometry}
-        material={materials["mat23.005"]}
-      />
-      <mesh
-        geometry={nodes.mesh139018155_1.geometry}
-        material={materials["mat16.003"]}
-      />
-      <mesh
-        geometry={nodes.mesh148538432.geometry}
-        material={materials["mat16.003"]}
-      />
-      <mesh
-        geometry={nodes.mesh148538432_1.geometry}
-        material={materials["mat23.005"]}
-      />
-      <mesh
-        geometry={nodes.mesh172225094.geometry}
-        material={materials["mat17.007"]}
-      />
-      <mesh
-        geometry={nodes.mesh172225094_1.geometry}
-        material={materials["mat23.005"]}
-      />
-      <mesh
-        geometry={nodes.mesh381560967.geometry}
-        material={materials["mat17.007"]}
-      />
-      <mesh
-        geometry={nodes.mesh381560967_1.geometry}
-        material={materials["mat15.002"]}
-      />
-      <mesh
         geometry={nodes.mesh549538436.geometry}
         material={materials["mat23.005"]}
       />
@@ -1995,48 +1440,484 @@ const Room = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
         material={materials.mat24}
       />
       <mesh
-        geometry={nodes.mesh562682276.geometry}
-        material={materials["mat23.005"]}
+        geometry={nodes.group1004135894.geometry}
+        material={materials["mat11.002"]}
       />
       <mesh
-        geometry={nodes.mesh562682276_1.geometry}
-        material={materials["mat16.003"]}
-      />
-      <mesh
-        geometry={nodes.mesh614062749.geometry}
+        geometry={nodes.group1013654719.geometry}
         material={materials["mat17.007"]}
       />
       <mesh
-        geometry={nodes.mesh614062749_1.geometry}
+        geometry={nodes.group1017920957.geometry}
+        material={materials["mat17.007"]}
+      />
+      <mesh
+        geometry={nodes.group1033487155.geometry}
+        material={materials["mat21.006"]}
+      />
+      <mesh
+        geometry={nodes.group1050079147.geometry}
+        material={materials["mat23.005"]}
+      />
+      <mesh
+        geometry={nodes.group1051984110.geometry}
+        material={materials["mat5.002"]}
+      />
+      <mesh
+        geometry={nodes.group109271366.geometry}
+        material={materials["mat23.005"]}
+      />
+      <mesh
+        geometry={nodes.group11151369.geometry}
+        material={materials["mat23.005"]}
+      />
+      <mesh
+        geometry={nodes.group1144869753.geometry}
+        material={materials["mat9.006"]}
+      />
+      <mesh
+        geometry={nodes.group1158745515.geometry}
+        material={materials["mat22.002"]}
+      />
+      <mesh
+        geometry={nodes.group1179872976.geometry}
+        material={materials["mat23.005"]}
+      />
+      <mesh
+        geometry={nodes.group1186992705.geometry}
+        material={materials["mat9.006"]}
+      />
+      <mesh
+        geometry={nodes.group120898098.geometry}
+        material={materials["mat22.002"]}
+      />
+      <mesh
+        geometry={nodes.group1216547099.geometry}
+        material={materials["mat23.005"]}
+      />
+      <mesh
+        geometry={nodes.group1247630253.geometry}
+        material={materials["mat23.005"]}
+      />
+      <mesh
+        geometry={nodes.group1275655566.geometry}
+        material={materials["mat17.007"]}
+      />
+      <mesh
+        geometry={nodes.group1280736543.geometry}
+        material={materials["mat17.007"]}
+      />
+      <mesh
+        geometry={nodes.group1297143275.geometry}
+        material={materials["mat17.007"]}
+      />
+      <mesh
+        geometry={nodes.group1324414297.geometry}
+        material={materials["mat15.002"]}
+      />
+      <mesh
+        geometry={nodes.group1332034770.geometry}
+        material={materials["mat15.002"]}
+      />
+      <mesh
+        geometry={nodes.group1338682067.geometry}
+        material={materials["mat15.002"]}
+      />
+      <mesh
+        geometry={nodes.group1350575126.geometry}
+        material={materials["mat23.005"]}
+      />
+      <mesh
+        geometry={nodes.group1381102080.geometry}
+        material={materials["mat17.007"]}
+      />
+      <mesh
+        geometry={nodes.group1395154075.geometry}
+        material={materials["mat16.003"]}
+      />
+      <mesh
+        geometry={nodes.group1403669828.geometry}
+        material={materials["mat15.002"]}
+      />
+      <mesh
+        geometry={nodes.group1403985160.geometry}
+        material={materials["mat15.002"]}
+      />
+      <mesh
+        geometry={nodes.group1411416077.geometry}
+        material={materials["mat23.005"]}
+      />
+      <mesh
+        geometry={nodes.group1526395978.geometry}
+        material={materials["mat16.003"]}
+      />
+      <mesh
+        geometry={nodes.group1548294784.geometry}
+        material={materials["mat5.002"]}
+      />
+      <mesh
+        geometry={nodes.group1554204416.geometry}
+        material={materials["mat15.002"]}
+      />
+      <mesh
+        geometry={nodes.group1562485891.geometry}
+        material={materials["mat15.002"]}
+      />
+      <mesh
+        geometry={nodes.group1578493595.geometry}
+        material={materials["mat15.002"]}
+      />
+      <mesh
+        geometry={nodes.group1586564780.geometry}
+        material={materials["mat17.007"]}
+      />
+      <mesh
+        geometry={nodes.group1601213803.geometry}
+        material={materials["mat15.002"]}
+      />
+      <mesh
+        geometry={nodes.group1620621923.geometry}
+        material={materials["mat17.007"]}
+      />
+      <mesh
+        geometry={nodes.group1634298705.geometry}
+        material={materials["mat17.007"]}
+      />
+      <mesh
+        geometry={nodes.group1644871367.geometry}
+        material={materials["mat23.005"]}
+      />
+      <mesh
+        geometry={nodes.group1664409649.geometry}
+        material={materials["mat21.006"]}
+      />
+      <mesh
+        geometry={nodes.group1714365479.geometry}
+        material={materials["mat15.002"]}
+      />
+      <mesh
+        geometry={nodes.group1724716729.geometry}
+        material={materials["mat23.005"]}
+      />
+      <mesh
+        geometry={nodes.group1739615239.geometry}
+        material={materials["mat23.005"]}
+      />
+      <mesh
+        geometry={nodes.group1747962436.geometry}
+        material={materials["mat23.005"]}
+      />
+      <mesh
+        geometry={nodes.group1788593855.geometry}
+        material={materials["mat23.005"]}
+      />
+      <mesh
+        geometry={nodes.group1799134820.geometry}
+        material={materials["mat23.005"]}
+      />
+      <mesh
+        geometry={nodes.group1799644813.geometry}
+        material={materials["mat10.004"]}
+      />
+      <mesh
+        geometry={nodes.group1800416953.geometry}
+        material={materials["mat17.007"]}
+      />
+      <mesh
+        geometry={nodes.group1809112506.geometry}
+        material={materials["mat12.003"]}
+      />
+      <mesh
+        geometry={nodes.group1817044955.geometry}
+        material={materials["mat22.002"]}
+      />
+      <mesh
+        geometry={nodes.group1851189319.geometry}
+        material={materials["mat22.002"]}
+      />
+      <mesh
+        geometry={nodes.group1851977708.geometry}
+        material={materials["mat23.005"]}
+      />
+      <mesh
+        geometry={nodes.group1867655503.geometry}
+        material={materials.mat24}
+      />
+      <mesh
+        geometry={nodes.group1874588551.geometry}
         material={materials["mat8.004"]}
       />
       <mesh
-        geometry={nodes.mesh614062749_2.geometry}
+        geometry={nodes.group1876175818.geometry}
+        material={materials["mat22.002"]}
+      />
+      <mesh
+        geometry={nodes.group191747226.geometry}
         material={materials["mat23.005"]}
       />
       <mesh
-        geometry={nodes.mesh619239296.geometry}
+        geometry={nodes.group194524521.geometry}
+        material={materials["mat3.004"]}
+      />
+      <mesh
+        geometry={nodes.group1961792104.geometry}
+        material={materials["mat10.004"]}
+      />
+      <mesh
+        geometry={nodes.group1977161757.geometry}
+        material={materials["mat17.007"]}
+      />
+      <mesh
+        geometry={nodes.group2011638665.geometry}
+        material={materials["mat23.005"]}
+      />
+      <mesh
+        geometry={nodes.group2024160734.geometry}
+        material={materials["mat17.007"]}
+      />
+      <mesh
+        geometry={nodes.group2032200821.geometry}
         material={materials["mat16.003"]}
       />
       <mesh
-        geometry={nodes.mesh619239296_1.geometry}
+        geometry={nodes.group2061932718.geometry}
+        material={materials["mat12.003"]}
+      />
+      <mesh
+        geometry={nodes.group2083473735.geometry}
+        material={materials["mat17.007"]}
+      />
+      <mesh
+        geometry={nodes.group2094616060.geometry}
+        material={materials["mat17.007"]}
+      />
+      <mesh
+        geometry={nodes.group2101908238.geometry}
+        material={materials["mat15.002"]}
+      />
+      <mesh
+        geometry={nodes.group2102640996.geometry}
+        material={materials["mat17.007"]}
+      />
+      <mesh
+        geometry={nodes.group229424706.geometry}
         material={materials["mat23.005"]}
       />
       <mesh
-        geometry={nodes.mesh892610586.geometry}
+        geometry={nodes.group239182004.geometry}
+        material={materials["mat15.002"]}
+      />
+      <mesh
+        geometry={nodes.group246477310.geometry}
+        material={materials["mat17.007"]}
+      />
+      <mesh
+        geometry={nodes.group252333627.geometry}
+        material={materials["mat22.002"]}
+      />
+      <mesh
+        geometry={nodes.group287848248.geometry}
+        material={materials["mat15.002"]}
+      />
+      <mesh
+        geometry={nodes.group289168744.geometry}
+        material={materials["mat17.007"]}
+      />
+      <mesh
+        geometry={nodes.group310832378.geometry}
+        material={materials["mat15.002"]}
+      />
+      <mesh
+        geometry={nodes.group311705158.geometry}
+        material={materials["mat17.007"]}
+      />
+      <mesh
+        geometry={nodes.group332402059.geometry}
+        material={materials["mat11.002"]}
+      />
+      <mesh
+        geometry={nodes.group335831164.geometry}
+        material={materials["mat17.007"]}
+      />
+      <mesh
+        geometry={nodes.group358629412.geometry}
         material={materials["mat23.005"]}
       />
       <mesh
-        geometry={nodes.mesh892610586_1.geometry}
+        geometry={nodes.group360414338.geometry}
+        material={materials["mat10.004"]}
+      />
+      <mesh
+        geometry={nodes.group367993755.geometry}
+        material={materials["mat23.005"]}
+      />
+      <mesh
+        geometry={nodes.group376269877.geometry}
+        material={materials["mat17.007"]}
+      />
+      <mesh
+        geometry={nodes.group377627692.geometry}
+        material={materials["mat23.005"]}
+      />
+      <mesh
+        geometry={nodes.group395313063.geometry}
+        material={materials["mat17.007"]}
+      />
+      <mesh
+        geometry={nodes.group417210971.geometry}
+        material={materials["mat22.002"]}
+      />
+      <mesh
+        geometry={nodes.group438055053.geometry}
+        material={materials["mat15.002"]}
+      />
+      <mesh
+        geometry={nodes.group458008891.geometry}
+        material={materials["mat21.006"]}
+      />
+      <mesh
+        geometry={nodes.group47713880.geometry}
+        material={materials["mat23.005"]}
+      />
+      <mesh
+        geometry={nodes.group47846800.geometry}
+        material={materials["mat11.002"]}
+      />
+      <mesh
+        geometry={nodes.group508965083.geometry}
+        material={materials["mat15.002"]}
+      />
+      <mesh
+        geometry={nodes.group54598879.geometry}
+        material={materials["mat3.004"]}
+      />
+      <mesh
+        geometry={nodes.group56262870.geometry}
+        material={materials["mat23.005"]}
+      />
+      <mesh
+        geometry={nodes.group563957055.geometry}
+        material={materials["mat10.004"]}
+      />
+      <mesh
+        geometry={nodes.group573210084.geometry}
+        material={materials["mat11.002"]}
+      />
+      <mesh
+        geometry={nodes.group587275507.geometry}
+        material={materials["mat23.005"]}
+      />
+      <mesh
+        geometry={nodes.group602345555.geometry}
+        material={materials["mat15.002"]}
+      />
+      <mesh
+        geometry={nodes.group602384715.geometry}
+        material={materials["mat17.007"]}
+      />
+      <mesh
+        geometry={nodes.group667732097.geometry}
+        material={materials["mat17.007"]}
+      />
+      <mesh
+        geometry={nodes.group675547103.geometry}
+        material={materials["mat23.005"]}
+      />
+      <mesh
+        geometry={nodes.group676590036.geometry}
         material={materials["mat16.003"]}
       />
       <mesh
-        geometry={nodes.mesh997898928.geometry}
-        material={materials["mat23.005"]}
+        geometry={nodes.group676697694.geometry}
+        material={materials["mat21.006"]}
       />
       <mesh
-        geometry={nodes.mesh997898928_1.geometry}
+        geometry={nodes.group701415949.geometry}
+        material={materials["mat17.007"]}
+      />
+      <mesh
+        geometry={nodes.group704994766.geometry}
+        material={materials["mat11.002"]}
+      />
+      <mesh
+        geometry={nodes.group706968164.geometry}
+        material={materials["mat17.007"]}
+      />
+      <mesh
+        geometry={nodes.group713359564.geometry}
+        material={materials["mat11.002"]}
+      />
+      <mesh
+        geometry={nodes.group731708330.geometry}
+        material={materials["mat15.002"]}
+      />
+      <mesh
+        geometry={nodes.group73605351.geometry}
+        material={materials["mat15.002"]}
+      />
+      <mesh
+        geometry={nodes.group740024917.geometry}
+        material={materials["mat15.002"]}
+      />
+      <mesh
+        geometry={nodes.group741402870.geometry}
+        material={materials["mat17.007"]}
+      />
+      <mesh
+        geometry={nodes.group761930540.geometry}
         material={materials["mat16.003"]}
+      />
+      <mesh
+        geometry={nodes.group774251851.geometry}
+        material={materials["mat8.004"]}
+      />
+      <mesh
+        geometry={nodes.group79611238.geometry}
+        material={materials["mat17.007"]}
+      />
+      <mesh
+        geometry={nodes.group833559944.geometry}
+        material={materials["mat13.002"]}
+      />
+      <mesh
+        geometry={nodes.group854105041.geometry}
+        material={materials["mat11.002"]}
+      />
+      <mesh
+        geometry={nodes.group886964551.geometry}
+        material={materials["mat15.002"]}
+      />
+      <mesh
+        geometry={nodes.group893749766.geometry}
+        material={materials["mat16.003"]}
+      />
+      <mesh
+        geometry={nodes.group897881202.geometry}
+        material={materials["mat16.003"]}
+      />
+      <mesh
+        geometry={nodes.group912049542.geometry}
+        material={materials["mat8.004"]}
+      />
+      <mesh
+        geometry={nodes.group935673430.geometry}
+        material={materials["mat8.004"]}
+      />
+      <mesh
+        geometry={nodes.group952295781.geometry}
+        material={materials["mat17.007"]}
+      />
+      <mesh
+        geometry={nodes.group95314420.geometry}
+        material={materials["mat11.002"]}
+      />
+      <mesh
+        geometry={nodes.group961377794.geometry}
+        material={materials["mat21.006"]}
+      />
+      <mesh
+        geometry={nodes.group968331571.geometry}
+        material={materials["mat15.002"]}
       />
       <mesh
         geometry={nodes.mesh1002021246.geometry}
@@ -2083,6 +1964,14 @@ const Room = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
         material={materials["mat17.007"]}
       />
       <mesh
+        geometry={nodes.mesh139018155.geometry}
+        material={materials["mat23.005"]}
+      />
+      <mesh
+        geometry={nodes.mesh139018155_1.geometry}
+        material={materials["mat16.003"]}
+      />
+      <mesh
         geometry={nodes.mesh1403192981.geometry}
         material={materials["mat23.005"]}
       />
@@ -2103,6 +1992,14 @@ const Room = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
         material={materials["mat16.003"]}
       />
       <mesh
+        geometry={nodes.mesh148538432.geometry}
+        material={materials["mat16.003"]}
+      />
+      <mesh
+        geometry={nodes.mesh148538432_1.geometry}
+        material={materials["mat23.005"]}
+      />
+      <mesh
         geometry={nodes.mesh1517310649.geometry}
         material={materials["mat11.002"]}
       />
@@ -2117,6 +2014,14 @@ const Room = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
       <mesh
         geometry={nodes.mesh1693732898_1.geometry}
         material={materials["mat17.007"]}
+      />
+      <mesh
+        geometry={nodes.mesh172225094.geometry}
+        material={materials["mat17.007"]}
+      />
+      <mesh
+        geometry={nodes.mesh172225094_1.geometry}
+        material={materials["mat23.005"]}
       />
       <mesh
         geometry={nodes.mesh1722992837.geometry}
@@ -2169,6 +2074,58 @@ const Room = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
       <mesh
         geometry={nodes.mesh2029488445_1.geometry}
         material={materials["mat23.005"]}
+      />
+      <mesh
+        geometry={nodes.mesh381560967.geometry}
+        material={materials["mat17.007"]}
+      />
+      <mesh
+        geometry={nodes.mesh381560967_1.geometry}
+        material={materials["mat15.002"]}
+      />
+      <mesh
+        geometry={nodes.mesh562682276.geometry}
+        material={materials["mat23.005"]}
+      />
+      <mesh
+        geometry={nodes.mesh562682276_1.geometry}
+        material={materials["mat16.003"]}
+      />
+      <mesh
+        geometry={nodes.mesh614062749.geometry}
+        material={materials["mat17.007"]}
+      />
+      <mesh
+        geometry={nodes.mesh614062749_1.geometry}
+        material={materials["mat8.004"]}
+      />
+      <mesh
+        geometry={nodes.mesh614062749_2.geometry}
+        material={materials["mat23.005"]}
+      />
+      <mesh
+        geometry={nodes.mesh619239296.geometry}
+        material={materials["mat16.003"]}
+      />
+      <mesh
+        geometry={nodes.mesh619239296_1.geometry}
+        material={materials["mat23.005"]}
+      />
+      <mesh
+        geometry={nodes.mesh892610586.geometry}
+        material={materials["mat23.005"]}
+      />
+      <mesh
+        geometry={nodes.mesh892610586_1.geometry}
+        material={materials["mat16.003"]}
+      />
+      <mesh
+        geometry={nodes.mesh997898928.geometry}
+        material={materials["mat23.005"]}
+      />
+      <mesh
+        geometry={nodes.mesh997898928_1.geometry}
+        material={materials["mat16.003"]}
       />
       <mesh
         geometry={nodes["Node-Mesh007"].geometry}
