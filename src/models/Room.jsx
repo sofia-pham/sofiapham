@@ -9,7 +9,6 @@ import { a } from "@react-spring/three";
 // a.group means an animated group
 
 import roomScene from "../assets/3D models/room.glb";
-import { use } from "react";
 
 const Room = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
   const roomRef = useRef();
@@ -22,7 +21,7 @@ const Room = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
   const lastX = useRef(0);
   // how fast the room should rotate and continue to move
   const rotationSpeed = useRef(0);
-  const dampingFactor = 0.8;
+  const dampingFactor = 0.95;
 
   // handling when the mouse is clicked and held down
   const handlePointerDown = (e) => {
@@ -69,23 +68,23 @@ const Room = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
     }
   };
 
-  // handling when left or right arrow keys is pressed
-  const handleKeyDown = (e) => {
-    if (e.key === "ArrowLeft") {
-      if (!isRotating) setIsRotating(true);
-      roomRef.current.rotation.y += 0.1 * Math.PI;
-    } else if (e.key === "ArrowRight") {
-      if (!isRotating) setIsRotating(true);
-      roomRef.current.rotation.y -= 0.1 * Math.PI;
-    }
-  };
+  // // handling when left or right arrow keys is pressed
+  // const handleKeyDown = (e) => {
+  //   if (e.key === "ArrowLeft") {
+  //     if (!isRotating) setIsRotating(true);
+  //     roomRef.current.rotation.y += 0.1 * Math.PI;
+  //   } else if (e.key === "ArrowRight") {
+  //     if (!isRotating) setIsRotating(true);
+  //     roomRef.current.rotation.y -= 0.1 * Math.PI;
+  //   }
+  // };
 
-  // handling when left or right arrow keys is released
-  const handleKeyUp = (e) => {
-    if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
-      setIsRotating(false);
-    }
-  };
+  // // handling when left or right arrow keys is released
+  // const handleKeyUp = (e) => {
+  //   if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+  //     setIsRotating(false);
+  //   }
+  // };
 
   // hook, applied to every single frame
   useFrame(() => {
@@ -151,24 +150,24 @@ const Room = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
     canvas.addEventListener("pointerdown", handlePointerDown);
     canvas.addEventListener("pointerup", handlePointerUp);
     canvas.addEventListener("pointermove", handlePointerMove);
-    document.addEventListener("keydown", handleKeyDown);
-    document.addEventListener("keyup", handleKeyUp);
+    // document.addEventListener("keydown", handleKeyDown);
+    // document.addEventListener("keyup", handleKeyUp);
 
     // removing events when we exit the page
     return () => {
       canvas.removeEventListener("pointerdown", handlePointerDown);
       canvas.removeEventListener("pointerup", handlePointerUp);
       canvas.removeEventListener("pointermove", handlePointerMove);
-      document.removeEventListener("keydown", handleKeyDown);
-      document.removeEventListener("keyup", handleKeyUp);
+      // document.removeEventListener("keydown", handleKeyDown);
+      // document.removeEventListener("keyup", handleKeyUp);
     };
   }, [
     gl,
     handlePointerDown,
     handlePointerUp,
     handlePointerMove,
-    handleKeyDown,
-    handleKeyUp,
+    // handleKeyDown,
+    // handleKeyUp,
   ]);
 
   return (
@@ -524,6 +523,20 @@ const Room = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
           material={materials["mat6.001"]}
         />
       </mesh>
+      <group position={[-4.146, 1.929, -1.844]} scale={1.227}>
+        <mesh
+          geometry={nodes.OfficeChair001.geometry}
+          material={materials["Grey.001"]}
+        />
+        <mesh
+          geometry={nodes.OfficeChair001_1.geometry}
+          material={materials.Black}
+        />
+        <mesh
+          geometry={nodes.OfficeChair001_2.geometry}
+          material={materials.Chair}
+        />
+      </group>
       <mesh geometry={nodes.coins.geometry} material={materials["mat13.004"]} />
       <mesh geometry={nodes.bean_bag.geometry} material={materials.BeanBag} />
       <mesh
@@ -825,6 +838,7 @@ const Room = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
       <mesh
         geometry={nodes.slippers.geometry}
         material={materials["tiny_treats_1.001"]}
+        position={[0, -0.005, 0]}
       />
       <mesh geometry={nodes.Bottom.geometry} material={materials.Miscs} />
       <mesh geometry={nodes.Exhaust.geometry} material={materials.Miscs} />
@@ -896,18 +910,6 @@ const Room = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
       <mesh
         geometry={nodes.Cardboard_Boxes_2.geometry}
         material={materials["mat19.004"]}
-      />
-      <mesh
-        geometry={nodes.OfficeChair001.geometry}
-        material={materials["Grey.001"]}
-      />
-      <mesh
-        geometry={nodes.OfficeChair001_1.geometry}
-        material={materials.Black}
-      />
-      <mesh
-        geometry={nodes.OfficeChair001_2.geometry}
-        material={materials.Chair}
       />
       <mesh
         geometry={nodes["Node-Mesh003"].geometry}

@@ -1,16 +1,17 @@
-import { Suspense, useState } from "react";
+import { Suspense, useState, useRef } from "react";
 import { Canvas } from "@react-three/fiber";
 import Loader from "../components/Loader";
 import Room from "../models/Room";
 import Sky from "../models/Sky";
 import Cat from "../models/Cat";
+import Camera from "../components/Camera";
 import { ContactShadows, Environment, OrbitControls } from "@react-three/drei";
 
 const Home = () => {
   const [isRotating, setIsRotating] = useState(false);
   const [currentStage, setCurrentStage] = useState(1);
 
-  // to make room look nice on all devices
+  // to make room + cat look nice on all devices
   const adjustForScreen = () => {
     let screenScale = null;
     let screenPosition = [2.5, -4, 1];
@@ -25,6 +26,8 @@ const Home = () => {
     return { screenScale, screenPosition, rotation };
   };
   const { screenScale, screenPosition, rotation } = adjustForScreen();
+
+  // code to separate room and cat
 
   // // to make room look nice on all devices
   // const adjustRoomForScreen = () => {
@@ -69,7 +72,7 @@ const Home = () => {
       >
         <Suspense fallback={<Loader />}>
           {/* distant light source like the sun */}
-          <directionalLight position={[-10, 1, -4]} intensity={2} />{" "}
+          <directionalLight position={[-100, 21, 5]} intensity={2} />{" "}
           {/* ambientLight lights up the scene equally, no need for position */}
           <ambientLight intensity={0.5} />
           <spotLight position={[[0, 0, 0]]} angle={0.15} penumbra={1} />
@@ -79,8 +82,6 @@ const Home = () => {
             intensity={1}
           />
           <Sky isRotating={isRotating} />
-          <OrbitControls />
-          <Environment preset="sunset" />
           <group
             position={screenPosition}
             scale={screenScale}
@@ -101,7 +102,7 @@ const Home = () => {
             />
             <Cat
               isRotating={isRotating}
-              position={[-2.5, 1.5, -1.3]}
+              position={[-2.5, 1, -1.5]}
               rotation={[0, 35, 0]}
             />
           </group>
@@ -112,3 +113,66 @@ const Home = () => {
 };
 
 export default Home;
+
+// import { Suspense, useState, useRef } from "react";
+// import { Canvas, useFrame } from "@react-three/fiber";
+// import Loader from "../components/Loader";
+// import Room from "../models/Room";
+// import Sky from "../models/Sky";
+// import Cat from "../models/Cat";
+// import * as THREE from "three";
+// import Camera from "../components/Camera";
+
+// const Home = () => {
+//   const [isDragging, setIsDragging] = useState(false);
+//   const [dragDelta, setDragDelta] = useState(0);
+//   const catRef = useRef(new THREE.Vector3()); // Track cat's position
+//   const lastMouseX = useRef(null);
+
+//   // Handle mouse down
+//   const handlePointerDown = (e) => {
+//     e.stopPropagation();
+//     lastMouseX.current = e.clientX; // Store the initial mouse position
+//     setIsDragging(true);
+//   };
+
+//   // Handle mouse up
+//   const handlePointerUp = () => {
+//     setIsDragging(false);
+//     setDragDelta(0); // Reset drag delta
+//   };
+
+//   // Handle mouse move
+//   const handlePointerMove = (e) => {
+//     if (!isDragging || lastMouseX.current === null) return;
+
+//     const delta = (e.clientX - lastMouseX.current) / window.innerWidth; // Calculate horizontal drag
+//     setDragDelta(delta);
+//     lastMouseX.current = e.clientX; // Update last mouse position
+//   };
+
+//   return (
+//     <section className="w-full h-screen relative">
+//       <Canvas
+//         className="w-full h-screen"
+//         camera={{ position: [0, 5, 10], near: 0.1, far: 1000 }}
+//         onPointerDown={handlePointerDown}
+//         onPointerUp={handlePointerUp}
+//         onPointerMove={handlePointerMove}
+//       >
+//         <Suspense fallback={<Loader />}>
+//           <directionalLight position={[-10, 1, -4]} intensity={2} />
+//           <ambientLight intensity={0.5} />
+//           <Sky />
+//           <Room />
+//           <Camera catRef={catRef} />
+
+//           {/* Cat component */}
+//           <Cat isDragging={isDragging} dragDelta={dragDelta} ref={catRef} />
+//         </Suspense>
+//       </Canvas>
+//     </section>
+//   );
+// };
+
+// export default Home;
