@@ -29,6 +29,7 @@ const Contact = () => {
     // reset form:  setForm({ name: "", email: "", message: "" })
     // show success message and hide alert
     // catch error, setForm should be false here too
+    // once form is sent, clear the form
   };
 
   return (
@@ -42,42 +43,48 @@ const Contact = () => {
           // data-netlify="true"
           onSubmit={handleSubmit}
         >
-          <label className="text-black-500 font-semibold"> Name </label>
-          <input
-            type="text"
-            name="name"
-            className="input"
-            placeholder="Jane Smith"
-            required
-            value={form.name}
-            onChange={handleChange}
-            onFocus={handleFocus}
-            onBlur={handleBlur}
-          />
-          <label className="text-black-500 font-semibold"> Email </label>
-          <input
-            type="email"
-            name="email"
-            className="input"
-            placeholder="jane.smith@domain.com"
-            required
-            value={form.message}
-            onChange={handleChange}
-            onFocus={handleFocus}
-            onBlur={handleBlur}
-          />
-          <label className="text-black-500 font-semibold"> Your Message </label>
-          <textarea
-            name="message"
-            className="textarea"
-            placeholder="Your message here..."
-            rows={3}
-            required
-            value={form.name}
-            onChange={handleChange}
-            onFocus={handleFocus}
-            onBlur={handleBlur}
-          />
+          <label className="text-black-500 font-semibold">
+            Name
+            <input
+              type="text"
+              name="name"
+              className="input"
+              placeholder="Jane Smith"
+              required
+              value={form.name}
+              onChange={handleChange}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+            />
+          </label>
+          <label className="text-black-500 font-semibold">
+            Email
+            <input
+              type="email"
+              name="email"
+              className="input"
+              placeholder="jane.smith@domain.com"
+              required
+              value={form.email}
+              onChange={handleChange}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+            />
+          </label>
+          <label className="text-black-500 font-semibold">
+            Your Message
+            <textarea
+              name="message"
+              className="textarea"
+              placeholder="Your message here..."
+              rows={3}
+              required
+              value={form.message}
+              onChange={handleChange}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+            />
+          </label>
           <button
             type="submit"
             className="btn"

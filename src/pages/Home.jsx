@@ -15,8 +15,8 @@ const Home = () => {
   // to make room + cat look nice on all devices
   const adjustForScreen = () => {
     let screenScale = null;
-    let screenPosition = [3, -4, 0];
-    let rotation = [0, -49.7, 0];
+    let screenPosition = [4, -3.5, 0];
+    let rotation = [0, -49.8, 0];
 
     if (window.innerWidth < 768) {
       screenScale = [1.2, 1.2, 1.2];
@@ -103,6 +103,7 @@ const Home = () => {
               isRotating={isRotating}
               setIsRotating={setIsRotating}
               setCurrentStage={setCurrentStage}
+              position={[-0.5, -1, 0.3]}
             />
             <Cat
               isRotating={isRotating}
