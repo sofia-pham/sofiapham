@@ -1,20 +1,22 @@
-import { Suspense, useState } from "react";
+import { Suspense, useState, useRef } from "react";
 import { Canvas } from "@react-three/fiber";
 import Loader from "../components/Loader";
 import Room from "../models/Room";
 import Sky from "../models/Sky";
 import Cat from "../models/Cat";
+import Camera from "../components/Camera";
 import { ContactShadows, Environment, OrbitControls } from "@react-three/drei";
+import HomeInfo from "../components/HomeInfo";
 
 const Home = () => {
   const [isRotating, setIsRotating] = useState(false);
   const [currentStage, setCurrentStage] = useState(1);
 
-  // to make room look nice on all devices
+  // to make room + cat look nice on all devices
   const adjustForScreen = () => {
     let screenScale = null;
-    let screenPosition = [2.5, -4, 1];
-    let rotation = [0.2, -50, 0];
+    let screenPosition = [3, -4, 0];
+    let rotation = [0, -49.7, 0];
 
     if (window.innerWidth < 768) {
       screenScale = [1.2, 1.2, 1.2];
@@ -24,7 +26,9 @@ const Home = () => {
 
     return { screenScale, screenPosition, rotation };
   };
+
   const { screenScale, screenPosition, rotation } = adjustForScreen();
+  // code to separate room and cat
 
   // // to make room look nice on all devices
   // const adjustRoomForScreen = () => {
@@ -61,6 +65,9 @@ const Home = () => {
 
   return (
     <section className="w-full h-screen relative">
+      <div className="absolute top-28 left-0 right-0 z-10 flex items-center justify-center">
+        {currentStage && <HomeInfo currentStage={currentStage} />}
+      </div>
       <Canvas
         className={`w-full h-screen ${
           isRotating ? "cursor-grabbing" : "cursor-grab"
@@ -69,7 +76,7 @@ const Home = () => {
       >
         <Suspense fallback={<Loader />}>
           {/* distant light source like the sun */}
-          <directionalLight position={[-10, 1, -4]} intensity={2} />{" "}
+          <directionalLight position={[-100, 21, 5]} intensity={2} />{" "}
           {/* ambientLight lights up the scene equally, no need for position */}
           <ambientLight intensity={0.5} />
           <spotLight position={[[0, 0, 0]]} angle={0.15} penumbra={1} />
@@ -79,8 +86,6 @@ const Home = () => {
             intensity={1}
           />
           <Sky isRotating={isRotating} />
-          <OrbitControls />
-          <Environment preset="sunset" />
           <group
             position={screenPosition}
             scale={screenScale}
@@ -101,7 +106,7 @@ const Home = () => {
             />
             <Cat
               isRotating={isRotating}
-              position={[-2.5, 1.5, -1.3]}
+              position={[-2.2, 1.3, -2]}
               rotation={[0, 35, 0]}
             />
           </group>
