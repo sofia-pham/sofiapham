@@ -5,36 +5,17 @@ import { a } from "@react-spring/three";
 import catScene from "../assets/3D models/cat.glb";
 import { useFrame } from "@react-three/fiber";
 
-const Cat = ({ isRotating, ...props }) => {
+const CatContact = ({ currentAnimation, ...props }) => {
   const catRef = useRef();
   const { nodes, materials, scene, animations } = useGLTF(catScene);
   const { actions } = useAnimations(animations, catRef);
 
   useEffect(() => {
-    if (isRotating) {
-      actions["typing"]?.fadeOut(0.5);
-      actions["walking1"]?.reset().fadeIn(0.5).play();
-    } else {
-      actions["walking1"]?.fadeOut(0.5);
-      actions["typing"]?.reset().fadeIn(0.5).play();
+    Object.values(actions).forEach((action) => action.reset().fadeOut(1));
+    if (actions[currentAnimation]) {
+      actions[currentAnimation].reset().play();
     }
-  }, [actions, isRotating]);
-
-  useFrame(({ clock, camera }) => {
-    // catRef.current.rotation.y = Math.sin(clock.elapsedTime) * 0.2 + 2;
-    // if (catRef.current.position.x >= camera.position.x + 10) {
-    //   catRef.current.rotation.y = Math.PI;
-    // } else if (catRef.current.position.x <= camera.position.x - 10) {
-    //   catRef.current.rotation.y = 0;
-    // }
-    // if (catRef.current.rotation.y === 0) {
-    //   catRef.current.position.x += 0.01;
-    //   catRef.current.position.z -= 0.01;
-    // } else {
-    //   catRef.current.position.x -= 0.01;
-    //   catRef.current.position.z += 0.01;
-    // }
-  });
+  }, [actions, currentAnimation]);
 
   return (
     <a.group ref={catRef} {...props}>
@@ -151,4 +132,4 @@ const Cat = ({ isRotating, ...props }) => {
   );
 };
 
-export default Cat;
+export default CatContact;
