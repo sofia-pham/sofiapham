@@ -24,7 +24,7 @@ const renderContent = {
   ),
   2: (
     <InfoBox
-      text="I'm a CS student at TMU! 📚"
+      text="I'm a computer science student at TMU! 📚 "
       link="/about"
       btnText="Learn More About Me"
     />
@@ -36,9 +36,7 @@ const renderContent = {
       btnText="Learn More About My Projects"
     />
   ),
-  4: (
-    <InfoBox text="Ways to contact me" link="/contact" btnText="Click Here!" />
-  ),
+  4: <InfoBox text="Ways to contact me" link="/contact" btnText="Here!" />,
 };
 
 const HomeInfo = ({ currentStage }) => {

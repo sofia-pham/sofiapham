@@ -86,7 +86,7 @@ const Room = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
         let newRotation = roomRef.current.rotation.y;
 
         // Prevent rotation from exceeding 180 degrees
-        newRotation = Math.max(0, Math.min(Math.PI, newRotation)); // Clamp to [0, Math.PI]
+        newRotation = Math.max(0.2, Math.min(Math.PI, newRotation)); // Clamp to [0, Math.PI]
 
         // Apply the clamped rotation back to the room
         roomRef.current.rotation.y = newRotation;
@@ -104,7 +104,7 @@ const Room = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
             normalizedRotation < (3 * Math.PI) / 4:
             setCurrentStage(3);
             break;
-          case normalizedRotation >= Math.PI / 4 - 0.3 &&
+          case normalizedRotation >= Math.PI / 4 &&
             normalizedRotation < Math.PI / 2:
             setCurrentStage(2);
             break;

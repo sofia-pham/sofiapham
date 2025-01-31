@@ -3,6 +3,8 @@ import { Suspense, useRef, useState } from "react";
 import CatContact from "../models/CatContact";
 import Loader from "../components/Loader";
 import { ContactShadows } from "@react-three/drei";
+import useAlert from "../hooks/useAlert";
+import Alert from "../components/Alert";
 
 const Contact = () => {
   const formRef = useRef(null);
@@ -19,6 +21,8 @@ const Contact = () => {
   const handleFocus = () => setCurrentAnimation("typing");
   const handleBlur = () => setCurrentAnimation("walking1");
 
+  const { alert, showAlert, hideAlert } = useAlert();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsLoading(true);
@@ -29,10 +33,17 @@ const Contact = () => {
     // reset form:  setForm({ name: "", email: "", message: "" })
     // show success message and hide alert
     // catch error, setForm should be false here too
+    // once form is sent, clear the form: setForm({ name: "", email: "", message: "" })
+    // use useAlert to show success message or error message:
+    // showAlert({ text: "Form submitted successfully!", type: "success" });
+    // showAlert({ text: "Error submitting form. Please try again later.", type: "danger" });
+    // hideAlert(); in setTimeout to hide the alert after 3 seconds
+    // alert's kinda extra...lemmeseeeeeifitsworth...
   };
 
   return (
-    <section className="relative flex lg:flex-row flex-col max-container">
+    <section className="flex min-h-screen lg:flex-row flex-col max-container">
+      {alert.show && <Alert {...alert} />}
       <div className="flex-1 min-w-[50%] flex flex-col">
         <h1 className="head-text">Contact Me</h1>
         <form
@@ -42,42 +53,48 @@ const Contact = () => {
           // data-netlify="true"
           onSubmit={handleSubmit}
         >
-          <label className="text-black-500 font-semibold"> Name </label>
-          <input
-            type="text"
-            name="name"
-            className="input"
-            placeholder="Jane Smith"
-            required
-            value={form.name}
-            onChange={handleChange}
-            onFocus={handleFocus}
-            onBlur={handleBlur}
-          />
-          <label className="text-black-500 font-semibold"> Email </label>
-          <input
-            type="email"
-            name="email"
-            className="input"
-            placeholder="jane.smith@domain.com"
-            required
-            value={form.message}
-            onChange={handleChange}
-            onFocus={handleFocus}
-            onBlur={handleBlur}
-          />
-          <label className="text-black-500 font-semibold"> Your Message </label>
-          <textarea
-            name="message"
-            className="textarea"
-            placeholder="Your message here..."
-            rows={3}
-            required
-            value={form.name}
-            onChange={handleChange}
-            onFocus={handleFocus}
-            onBlur={handleBlur}
-          />
+          <label className="text-black-500 font-semibold">
+            Name
+            <input
+              type="text"
+              name="name"
+              className="input"
+              placeholder="Jane Smith"
+              required
+              value={form.name}
+              onChange={handleChange}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+            />
+          </label>
+          <label className="text-black-500 font-semibold">
+            Email
+            <input
+              type="email"
+              name="email"
+              className="input"
+              placeholder="jane.smith@domain.com"
+              required
+              value={form.email}
+              onChange={handleChange}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+            />
+          </label>
+          <label className="text-black-500 font-semibold">
+            Your Message
+            <textarea
+              name="message"
+              className="textarea"
+              placeholder="Your message here..."
+              rows={3}
+              required
+              value={form.message}
+              onChange={handleChange}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+            />
+          </label>
           <button
             type="submit"
             className="btn"
@@ -89,7 +106,7 @@ const Contact = () => {
           </button>
         </form>
       </div>
-      <div className="lg:w-1/2 w-full lg:h-auto md:h-[550px] h-[350px] flex justify-center items-center">
+      <div className="lg:w-[50%] w-full lg:h-auto md:h-[550px] h-[400px] flex justify-center items-center">
         <Canvas camera={{ position: [0, 0, 5], fov: 75, near: 0.1, far: 100 }}>
           <directionalLight intensity={2.5} position={[-0.5, -0.2, 1]} />
           <ambientLight intensity={0.5} />
@@ -104,12 +121,41 @@ const Contact = () => {
             />
             <CatContact
               currentAnimation={currentAnimation}
-              position={[0.35, -1, 1]}
-              rotation={[6.2, 6.15, 0]}
-              scale={[1, 1, 1]}
+              position={[0.35, -0.8, 0]}
+              rotation={[0, 0, 0]}
             />
           </Suspense>
         </Canvas>
+      </div>
+      <div className="absolute bottom-12 left-0 right-0 flex flex-col justify-center items-center space-y-1 text-center">
+        <h1 className="text-black-500 font-bold text-center text-lg">
+          Other Ways to Contact Me:
+        </h1>
+        <p className="text-black-500 font-semibold text-center">
+          📧 Email me:
+          <a
+            href="mailto:sof.pham@gmail.com"
+            className="text-blue-500 hover:underline ml-2"
+          >
+            sof.pham@gmail.com
+          </a>
+        </p>
+        <p className="text-black-500 font-semibold text-center">
+          💼 Connect with me:
+          <a
+            href="https://linkedin.com/in/sofia-pham"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-500 hover:underline ml-2"
+          >
+            Sofia Pham
+          </a>
+        </p>
+      </div>
+      <div className="absolute bottom-4 left-0 right-0 flex justify-center items-center">
+        <h1 className="text-gray-500 font-semibold text-center text-sm">
+          💖 Thank you for stopping by! 😊
+        </h1>
       </div>
     </section>
   );

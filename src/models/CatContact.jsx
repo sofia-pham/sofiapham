@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { useAnimations, useGLTF } from "@react-three/drei";
 import { a } from "@react-spring/three";
 
+import * as THREE from "three";
 import catScene from "../assets/3D models/cat.glb";
 import { useFrame } from "@react-three/fiber";
 
@@ -9,6 +10,16 @@ const CatContact = ({ currentAnimation, ...props }) => {
   const catRef = useRef();
   const { nodes, materials, scene, animations } = useGLTF(catScene);
   const { actions } = useAnimations(animations, catRef);
+
+  useFrame((state) => {
+    const target = new THREE.Vector3(state.pointer.x, state.pointer.y - 0.5, 2);
+    catRef.current.getObjectByName("spine006").lookAt(target);
+
+    if (currentAnimation === "typing") {
+      const newTarget = new THREE.Vector3(-1, -0.5, 2);
+      catRef.current.getObjectByName("spine006").lookAt(newTarget);
+    }
+  });
 
   useEffect(() => {
     Object.values(actions).forEach((action) => action.reset().fadeOut(1));
