@@ -1,18 +1,20 @@
 import { useFrame } from "@react-three/fiber";
+import { useRef } from "react";
 import * as THREE from "three";
 
 const Camera = ({ catRef }) => {
-  useFrame((state) => {
-    const camera = state.camera;
-    const offset = new THREE.Vector3(0, 5, 10); // Camera offset
-    const targetPosition = catRef.current.clone().add(offset); // Target position for the camera
+  const cameraRef = useRef();
 
-    // Smoothly interpolate the camera's position towards the target
-    camera.position.lerp(targetPosition, 0.05);
-    camera.lookAt(catRef.current); // Ensure the camera looks at the cat
+  useFrame(({ camera }) => {
+    if (catRef.current) {
+      const catPos = catRef.current.position.clone();
+      const offset = new THREE.Vector3(0, 2, 4); // Adjust offset to position camera
+      camera.position.lerp(catPos.add(offset), 0.1);
+      camera.lookAt(catRef.current.position);
+    }
   });
 
-  return null; // This component does not render anything
+  return null; // This component doesn't render anything, only updates the camera
 };
 
 export default Camera;
