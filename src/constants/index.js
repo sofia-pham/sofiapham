@@ -23,24 +23,33 @@ import {
     summiz,
     tailwindcss,
     threads,
-    typescript
+    typescript, 
+    python, 
+    c,
+    cpp,
+    blender,
+    java,
+    php,
+    threejs,
+    ttt,
+    website,
 } from "../assets/icons";
 
 export const skills = [
     {
-        imageUrl: css,
-        name: "CSS",
+        imageUrl: python,
+        name: "Python",
+        type: "Backend",
+    },
+    {
+        imageUrl: java,
+        name: "Java",
+        type: "Backend",
+    },
+    {
+        imageUrl: javascript,
+        name: "JavaScript",
         type: "Frontend",
-    },
-    {
-        imageUrl: git,
-        name: "Git",
-        type: "Version Control",
-    },
-    {
-        imageUrl: github,
-        name: "GitHub",
-        type: "Version Control",
     },
     {
         imageUrl: html,
@@ -48,9 +57,14 @@ export const skills = [
         type: "Frontend",
     },
     {
-        imageUrl: javascript,
-        name: "JavaScript",
+        imageUrl: css,
+        name: "CSS",
         type: "Frontend",
+    },
+    {
+        imageUrl: php,
+        name: "PHP",
+        type: "Backend",
     },
     {
         imageUrl: mongodb,
@@ -78,10 +92,35 @@ export const skills = [
         type: "Frontend",
     },
     {
+        imageUrl: threejs,
+        name: "Three.js",
+        type: "Frontend",
+    },
+    {
         imageUrl: typescript,
         name: "TypeScript",
         type: "Frontend",
-    }
+    },
+    {
+        imageUrl: c,
+        name: "C",
+        type: "Backend",
+    },      
+    {
+        imageUrl: git,
+        name: "Git",
+        type: "Version Control",
+    },
+    {
+        imageUrl: github,
+        name: "GitHub",
+        type: "Version Control",
+    },
+    {
+        imageUrl: blender,
+        name: "Blender",
+        type: "3D Software",
+    },
 ];
 
 export const experiences = [
@@ -113,7 +152,7 @@ export const experiences = [
     },
 ];
 
-export const extracurricular = [
+export const extracurriculars = [
     {
         title: "VP Finance",
         company_name: "Computer Science Course Union",
@@ -171,45 +210,31 @@ export const socialLinks = [
 
 export const projects = [
     {
-        iconUrl: pricewise,
-        theme: 'btn-back-red',
-        name: 'Amazon Price Tracker',
-        description: 'Developed a web application that tracks and notifies users of price changes for products on Amazon, helping users find the best deals.',
-        link: 'https://github.com/adrianhajdin/pricewise',
+        iconUrl: ttt,
+        theme: 'btn-back-white',
+        name: 'Tic Tac Toe Game',
+        description: '',
+        link: '',
     },
     {
-        iconUrl: threads,
-        theme: 'btn-back-green',
-        name: 'Full Stack Threads Clone',
-        description: 'Created a full-stack replica of the popular discussion platform "Threads," enabling users to post and engage in threaded conversations.',
-        link: 'https://github.com/adrianhajdin/threads',
+        iconUrl: website,
+        theme: 'btn-back-white',
+        name: 'Portfolio Website (this one!)',
+        description: '',
+        link: 'https://github.com/sofia-pham/sofiapham.git',
     },
     {
-        iconUrl: car,
-        theme: 'btn-back-blue',
-        name: 'Car Finding App',
-        description: 'Designed and built a mobile app for finding and comparing cars on the market, streamlining the car-buying process.',
-        link: 'https://github.com/adrianhajdin/project_next13_car_showcase',
+        iconUrl: ttt,
+        theme: 'btn-back-white',
+        name: 'Online Clothing Store DBMS',
+        description: '',
+        link: '',
     },
     {
-        iconUrl: snapgram,
-        theme: 'btn-back-pink',
-        name: 'Full Stack Instagram Clone',
-        description: 'Built a complete clone of Instagram, allowing users to share photos and connect with friends in a familiar social media environment.',
-        link: 'https://github.com/adrianhajdin/social_media_app',
+        iconUrl: ttt,
+        theme: 'btn-back-white',
+        name: 'Cat Of The Day',
+        description: '',
+        link: '',
     },
-    {
-        iconUrl: estate,
-        theme: 'btn-back-black',
-        name: 'Real-Estate Application',
-        description: 'Developed a web application for real estate listings, facilitating property searches and connecting buyers with sellers.',
-        link: 'https://github.com/adrianhajdin/projects_realestate',
-    },
-    {
-        iconUrl: summiz,
-        theme: 'btn-back-yellow',
-        name: 'AI Summarizer Application',
-        description: 'App that leverages AI to automatically generate concise & informative summaries from lengthy text content, or blogs.',
-        link: 'https://github.com/adrianhajdin/project_ai_summarizer',
-    }
 ];

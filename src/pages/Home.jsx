@@ -90,6 +90,7 @@ const Home = () => {
             position={catPosition}
             scale={catScale}
             rotation={[0, 35, 0]}
+            currentStage={currentStage}
           />
         </Suspense>
       </Canvas>

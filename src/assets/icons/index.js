@@ -26,6 +26,16 @@ import arrow from './arrow.svg'
 import contact from './contact.svg'
 import soundon from './soundon.png'
 import soundoff from './soundoff.png'
+import java from './java.svg'
+import php from './php.svg'
+import threejs from './threejs.svg'
+import c from './c.svg'
+import cpp from './cpp.svg'
+import blender from './blender.svg'
+import python from './python.svg'
+import ttt from './ttt.svg'
+import website from './website.svg'
+
 
 export {
     css,
@@ -55,5 +65,14 @@ export {
     arrow,
     contact,
     soundon,
-    soundoff
+    soundoff, 
+    java,
+    php,
+    threejs,
+    c,
+    cpp,
+    blender,
+    python,
+    ttt,
+    website,
 }

@@ -5,7 +5,7 @@ import { a } from "@react-spring/three";
 import catScene from "../assets/3D models/cat.glb";
 import { useFrame } from "@react-three/fiber";
 
-const Cat = ({ isRotating, ...props }) => {
+const Cat = ({ isRotating, currentStage, ...props }) => {
   const catRef = useRef();
   const { nodes, materials, scene, animations } = useGLTF(catScene);
   const { actions } = useAnimations(animations, catRef);
