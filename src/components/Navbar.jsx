@@ -8,13 +8,15 @@ const Navbar = () => {
         to="/"
         className="w-40 h-10 rounded-lg bg-white items-center justify-center flex font-bold shadow-md"
       >
-        <p className="blue-gradient_text text-center">SOFIA PHAM</p>
+        <p className="bg-gradient-to-tr from-green-800 to-green-500 inline-block text-transparent bg-clip-text text-center">
+          SOFIA PHAM
+        </p>
       </NavLink>
       <nav className="flex text-lg gap-7 font-medium">
         <NavLink
           to="/about"
           className={({ isActive }) =>
-            isActive ? "text-blue-500" : "text-black"
+            isActive ? "text-green-600" : "text-black"
           }
         >
           About
@@ -22,7 +24,7 @@ const Navbar = () => {
         <NavLink
           to="/projects"
           className={({ isActive }) =>
-            isActive ? "text-blue-500" : "text-black"
+            isActive ? "text-green-600" : "text-black"
           }
         >
           Projects
@@ -30,7 +32,7 @@ const Navbar = () => {
         <NavLink
           to="/contact"
           className={({ isActive }) =>
-            isActive ? "text-blue-500" : "text-black"
+            isActive ? "text-green-600" : "text-black"
           }
         >
           Contact

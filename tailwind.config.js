@@ -16,7 +16,11 @@ export default {
         },
         blue: {
           500: "#2b77e7"
-        }
+        },
+        green: {
+          800: "#2E7D32",
+          600: "#388E3C"
+        },
       },
       fontFamily: {
         worksans: ["Work Sans", "sans-serif"],

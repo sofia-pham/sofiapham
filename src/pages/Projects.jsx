@@ -1,7 +1,6 @@
 import { projects } from "../constants";
 import { Link } from "react-router-dom";
 import CTA from "../components/CTA";
-import arrow from "../assets/icons/arrow.svg";
 import { useEffect, useState } from "react";
 
 const Projects = () => {
@@ -28,7 +27,7 @@ const Projects = () => {
     <section className="max-container">
       <h1 className="head-text">
         My
-        <span className="text-emerald-600 font-semibold"> Projects </span>
+        <span className="text-green-600 font-semibold"> Projects </span>
       </h1>
       <div className="mt-5 flex flex-col gap-3 text-slate-500">
         <p> WRITE SOMETHING </p>
@@ -56,15 +55,10 @@ const Projects = () => {
                   to={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-semibold text-blue-600"
+                  className="font-semibold text-green-600"
                 >
-                  Link
+                  Link →
                 </Link>
-                <img
-                  src={arrow}
-                  alt="arrow"
-                  className="w-4 h-4 object-contain"
-                />
               </div>
             </div>
           </div>

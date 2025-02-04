@@ -1,28 +1,16 @@
 import { cgi, ehs, cscu } from "../assets/images";
 import {
-    car,
     contact,
     css,
-    estate,
-    express,
     git,
     github,
     html,
     javascript,
-    linkedin,
     mongodb,
-    motion,
-    mui,
     nextjs,
     nodejs,
-    pricewise,
     react,
-    redux,
-    sass,
-    snapgram,
-    summiz,
     tailwindcss,
-    threads,
     typescript, 
     python, 
     c,
@@ -33,6 +21,9 @@ import {
     threejs,
     ttt,
     website,
+    finger,
+    cat,
+    store
 } from "../assets/icons";
 
 export const skills = [
@@ -131,10 +122,9 @@ export const experiences = [
         iconBg: "#FFC1BD",
         date: "August 2023 - August 2024",
         points: [
-            "Enhanced forecasting processes and methodologies using MAPE and trend analysis in the auto insurance industry.",
-            "Performed financial reporting, including profit margins, P&L, cash flow modelling, and revenue forecasting.",
-            "Conducted model matching in Python using NLTK and Pandas, optimizing classification accuracy.",
-            "Acquired and manipulated data from databases using SQL on SQL Server, improving reporting efficiency.",
+            "Optimized automobile classification and labelling efficiency by 15% using Python, Natural Language Tool Kit (NLTK), and Pandas to perform model matching and trend analysis on all Canadian automobiles.",
+            "Improved financial reporting accuracy to 96%, leveraging Python and SQL scripts on databases hosted on SQL Servers for faster profit margin, cash flow modelling, and revenue forecasting calculations.",
+            "Worked cross-functionally across multiple teams to develop system design strategies that enhance forecasting processes and methodologies to decrease mean absolute percentage error.",
         ],
     },
     {
@@ -145,7 +135,7 @@ export const experiences = [
         date: "October 2020 - December 2023",
         points: [
             "Managed over 500 applications annually, maintaining accurate records in a common database using Excel.",
-            "Conducted screening interviews, ensuring 90% adoption success rate by matching applicants to appropriate pets.",
+            "Conducted screening interviews, ensuring a 90% adoption success rate by matching applicants to pets.",
             "Analyzed application and adoption data to identify patterns, optimizing the screening process and improving adoption match accuracy by 15%.", 
             "Guided applicants through a thorough and semi-remote adoption process.",
         ],
@@ -160,7 +150,8 @@ export const extracurriculars = [
         iconBg: "#c1e1ec",
         date: "September 2024 - Present",
         points: [
-            "Manage all financial needs of the CSCU including funding from sponsors, department, and student groups for events, accommodations, food, beverages, prizes, etc.",
+            "Managing over $15,000 in budget for the CS student body of 1000+ students, including funding from the school’s financial department and external sponsors such as Dayforce and theScore.",
+            "Leading and delegating responsibilities to finance associates to maintain a 10% budget increase YoY.",
             "Communicate between the finance department of TMU and student groups to obtain budget and maintain proper historical records.",
             "Prepare financial reports and budget proposals to ensure transparency and accountability in fund allocations.",
             "Negotiate sponsorship agreements and funding opportunities to maximize financial support for student initiatives.",
@@ -173,10 +164,10 @@ export const extracurriculars = [
         iconBg: "#c1e1ec",
         date: "May 2023 - September 2024",
         points: [
-            "Acted as public relations contact for all TMU computer science students, societies, and faculty members.",
-            "Communicated relevant updates, events, and opportunities with the student body via social media (Instagram, Discord, LinkedIn, etc.), monthly newsletters, and school announcement board.",
-            "Developed and execute communication strategies to enhance student engagement and organizational transparency.",
-            "Coordinated with executive team members to ensure consistent messaging and branding of union across all communication channels.",
+            "Acted as public relations contact for all TMU CS students, 5 student societies, and 12 faculty members.",
+            "Communicated relevant updates, events, and opportunities with the student body via social media, monthly newsletters, and school announcement boards.",
+            "Lead communications for speakers and sponsors from Amazon, Dayforce, Desjardins, Intuit, LinkedIn, Notion, Shopify, and Tesla.",
+            "Developed and execute communication strategies to enhance student engagement, consistent branding, and organizational transparency.",
         ],
     },
     {
@@ -194,6 +185,43 @@ export const extracurriculars = [
     },
 ];
 
+export const projects = [
+    {
+        iconUrl: website,
+        theme: 'btn-back-white',
+        name: 'Portfolio Website (this one!)',
+        description: '',
+        link: 'https://github.com/sofia-pham/sofiapham.git',
+    },
+    {
+        iconUrl: cat,
+        theme: 'btn-back-white',
+        name: 'Cat Of The Day',
+        description: 'WIP',
+        link: '',
+    }, 
+    {
+        iconUrl: finger,
+        theme: 'btn-back-white',
+        name: 'AFK Scroller',
+        description: '',
+        link: '',
+    }, 
+    {
+        iconUrl: store,
+        theme: 'btn-back-white',
+        name: 'Online Clothing Store DBMS',
+        description: '',
+        link: '',
+    },
+    {
+        iconUrl: ttt,
+        theme: 'btn-back-white',
+        name: 'Tic Tac Toe Game',
+        description: '',
+        link: '',
+    },
+];
 
 export const socialLinks = [
     {
@@ -205,36 +233,5 @@ export const socialLinks = [
         name: 'GitHub',
         iconUrl: github,
         link: 'https://github.com/sofia-pham',
-    },
-];
-
-export const projects = [
-    {
-        iconUrl: ttt,
-        theme: 'btn-back-white',
-        name: 'Tic Tac Toe Game',
-        description: '',
-        link: '',
-    },
-    {
-        iconUrl: website,
-        theme: 'btn-back-white',
-        name: 'Portfolio Website (this one!)',
-        description: '',
-        link: 'https://github.com/sofia-pham/sofiapham.git',
-    },
-    {
-        iconUrl: ttt,
-        theme: 'btn-back-white',
-        name: 'Online Clothing Store DBMS',
-        description: '',
-        link: '',
-    },
-    {
-        iconUrl: ttt,
-        theme: 'btn-back-white',
-        name: 'Cat Of The Day',
-        description: '',
-        link: '',
     },
 ];

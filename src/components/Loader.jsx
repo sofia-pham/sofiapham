@@ -6,7 +6,7 @@ const Loader = () => {
   return (
     <Html>
       <div className="flex justify-center items-center">
-        <div className="w-20 h-20 border-2 border-opacity-20 boarder-blue-500 boarder-t-blue-500 rounded-full animate-spin"></div>
+        <div className="w-20 h-20 border-2 border-opacity-20 boarder-green-500 boarder-t-green-500 rounded-full animate-spin"></div>
       </div>
     </Html>
   );

@@ -1,28 +1,28 @@
 import { Suspense, useState, useRef } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas } from "@react-three/fiber";
 import Loader from "../components/Loader";
 import Room from "../models/Room";
 import Sky from "../models/Sky";
 import Cat from "../models/Cat";
 import { ContactShadows } from "@react-three/drei";
 import HomeInfo from "../components/HomeInfo";
-import Camera from "../components/Camera";
+import * as THREE from "three";
 
 const Home = () => {
   const [isRotating, setIsRotating] = useState(false);
   const [currentStage, setCurrentStage] = useState(1);
-  const catRef = useRef();
 
   // to make room look nice on all devices
   const adjustRoomForScreen = () => {
-    let screenScale = null;
-    let screenPosition = [2.5, -4, 2.6];
+    let screenScale, screenPosition;
     let rotation = [0.2, -50, 0];
 
     if (window.innerWidth < 768) {
-      screenScale = [1.2, 1.2, 1.2];
+      screenScale = [0.9, 0.9, 0.9];
+      screenPosition = [2.5, -3, 2];
     } else {
       screenScale = [1, 1, 1];
+      screenPosition = [2.5, -4, 2.6];
     }
 
     return [screenScale, screenPosition, rotation];
@@ -33,16 +33,23 @@ const Home = () => {
     let screenScale, screenPosition;
 
     if (window.innerWidth < 768) {
-      screenScale = [1, 1, 1];
-      screenPosition = [-3, 1.3, -2];
+      screenScale = [0.9, 0.9, 0.9];
+      screenPosition = [0.2, -0.7, 1];
     } else {
       screenScale = [1, 1, 1];
-      screenPosition = [-0.2, -1.2, 1.5];
+      screenPosition = [-0.2, -1.2, 1];
     }
 
     return [screenScale, screenPosition];
   };
   const [catScale, catPosition] = adjustCatForScreen();
+
+  const stagePositions = {
+    1: new THREE.Vector3(0, -1.5, 2), // Example position
+    2: new THREE.Vector3(2, -1.5, -1.5),
+    3: new THREE.Vector3(0, -1.5, 3),
+    4: new THREE.Vector3(-2, -1.5, -2),
+  };
 
   return (
     <section className="w-full h-screen relative">
@@ -56,10 +63,7 @@ const Home = () => {
         camera={{ near: 0.1, far: 1000 }}
       >
         <Suspense fallback={<Loader />}>
-          <Camera catRef={catRef} />
-          {/* distant light source like the sun */}
-          <directionalLight position={[-100, 21, 5]} intensity={2} />{" "}
-          {/* ambientLight lights up the scene equally, no need for position */}
+          <directionalLight position={[-100, 21, 5]} intensity={2} />
           <ambientLight intensity={0.5} />
           <spotLight position={[[0, 0, 0]]} angle={0.15} penumbra={1} />
           <hemisphereLight
@@ -68,14 +72,6 @@ const Home = () => {
             intensity={1}
           />
           <Sky isRotating={isRotating} />
-          <ContactShadows
-            opacity={0.42}
-            scale={10}
-            blur={1}
-            far={10}
-            resolution={256}
-            color="#000000"
-          />
           <Room
             isRotating={isRotating}
             setIsRotating={setIsRotating}
@@ -85,12 +81,11 @@ const Home = () => {
             rotation={roomRotation}
           />
           <Cat
-            ref={catRef}
             isRotating={isRotating}
-            position={catPosition}
+            // position={catPosition}
             scale={catScale}
             rotation={[0, 35, 0]}
-            currentStage={currentStage}
+            targetPosition={stagePositions[currentStage]}
           />
         </Suspense>
       </Canvas>

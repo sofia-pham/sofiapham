@@ -34,7 +34,7 @@ const About = () => {
     <section className="max-container">
       <h1 className="head-text">
         Heyy! I'm
-        <span className="text-emerald-600 font-semibold"> Sofia </span>
+        <span className="text-green-600 font-semibold"> Sofia </span>
         (she/her)👋
       </h1>
       <div className="mt-5 flex flex-col gap-3 text-slate-500">
@@ -44,7 +44,7 @@ const About = () => {
           since then! I’m particularly interested in software development, with
           a focus on web and game development.
         </p>
-        <h2>🌈 Goals for 2025</h2>
+        <h2 className="font-semibold">🌈 Goals for 2025</h2>
         <ul>
           <li>
             - Master data structures and algorithms to ace technical interviews.
@@ -77,7 +77,7 @@ const About = () => {
         </div>
       </div>
       <div className="py-16">
-        <h3 className="subhead-text">Professional Experiences</h3>
+        <h3 className="subhead-text">Experiences</h3>
         <div className="mt-12 flex">
           <VerticalTimeline>
             {experiences.map((experience) => (
@@ -131,7 +131,7 @@ const About = () => {
         </div>
       </div>
       <div className="py-16 flex flex-col">
-        <h3 className="subhead-text">Extracurricular Activities</h3>
+        <h3 className="subhead-text">Leadership</h3>
         <div className="mt-12 flex">
           <VerticalTimeline>
             {extracurriculars.map((extracurricular, index) => (
