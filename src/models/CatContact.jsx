@@ -15,8 +15,11 @@ const CatContact = ({ currentAnimation, ...props }) => {
     const target = new THREE.Vector3(state.pointer.x, state.pointer.y - 0.5, 2);
     catRef.current.getObjectByName("spine006").lookAt(target);
 
-    if (currentAnimation === "typing") {
-      const newTarget = new THREE.Vector3(-1, -0.5, 2);
+    if (window.innerWidth < 960 && currentAnimation === "typing") {
+      const newTarget = new THREE.Vector3(0, 0.2, 2);
+      catRef.current.getObjectByName("spine006").lookAt(newTarget);
+    } else if (currentAnimation === "typing") {
+      const newTarget = new THREE.Vector3(-1.3, -0.8, 2);
       catRef.current.getObjectByName("spine006").lookAt(newTarget);
     }
   });

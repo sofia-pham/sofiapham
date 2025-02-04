@@ -5,15 +5,36 @@ import {
 import "react-vertical-timeline-component/style.min.css";
 
 import React from "react";
-import { skills, experiences, extracurricular } from "../constants";
+import { skills, experiences, extracurriculars } from "../constants";
 import CTA from "../components/CTA";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const About = () => {
+  const [showButton, setShowButton] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setShowButton(true);
+      } else {
+        setShowButton(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <section className="max-container">
       <h1 className="head-text">
         Heyy! I'm
-        <span className="text-emerald-600 font-semibold"> Sofia </span>
+        <span className="text-green-600 font-semibold"> Sofia </span>
         (she/her)👋
       </h1>
       <div className="mt-5 flex flex-col gap-3 text-slate-500">
@@ -23,7 +44,7 @@ const About = () => {
           since then! I’m particularly interested in software development, with
           a focus on web and game development.
         </p>
-        <h2>🌈 Goals for 2025</h2>
+        <h2 className="font-semibold">🌈 Goals for 2025</h2>
         <ul>
           <li>
             - Master data structures and algorithms to ace technical interviews.
@@ -42,7 +63,7 @@ const About = () => {
         <h3 className="subhead-text">My Skills</h3>
         <div className="mt-16 flex flex-wrap gap-12">
           {skills.map((skill) => (
-            <div className="block-container w-20 h-20 key">
+            <div className="block-container w-20 h-20" key={skill.name}>
               <div className="btn-back rounded-xl" />
               <div className="btn-front rounded-xl flex justify-center items-center">
                 <img
@@ -55,8 +76,8 @@ const About = () => {
           ))}
         </div>
       </div>
-      <div className="py-16 flex flex-col">
-        <h3 className="subhead-text">Professional Experiences</h3>
+      <div className="py-16">
+        <h3 className="subhead-text">Experiences</h3>
         <div className="mt-12 flex">
           <VerticalTimeline>
             {experiences.map((experience) => (
@@ -87,7 +108,7 @@ const About = () => {
                   <h3 className="text-black text-xl font-poppins font-semibold">
                     {experience.title}
                     <p
-                      className="text-black-500 font-medium font-base"
+                      className="text-black-500 font-medium text-base"
                       style={{ margin: 0 }}
                     >
                       {experience.company_name}
@@ -110,10 +131,10 @@ const About = () => {
         </div>
       </div>
       <div className="py-16 flex flex-col">
-        <h3 className="subhead-text">Extracurricular Activities</h3>
+        <h3 className="subhead-text">Leadership</h3>
         <div className="mt-12 flex">
           <VerticalTimeline>
-            {extracurricular.map((extracurricular, index) => (
+            {extracurriculars.map((extracurricular, index) => (
               <VerticalTimelineElement
                 key={extracurricular.index}
                 date={extracurricular.date}
@@ -165,6 +186,15 @@ const About = () => {
       </div>
       <hr className="border-slate-200" />
       <CTA />
+      {showButton && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 bg-green-800 text-white p-2 rounded-full shadow-lg hover:bg-green-600 transition-all text-md"
+          aria-label="Back to Top"
+        >
+          ↑
+        </button>
+      )}
     </section>
   );
 };

@@ -66,8 +66,16 @@ body:has(.card[data-color="green"]:hover) {
     @apply mx-5 relative flex text-white flex-col gap-3 max-w-2xl neo-brutalism-blue pt-4 pb-12 px-8;
   }
 
+  .info-box-green {
+    @apply mx-5 relative flex text-white flex-col gap-3 max-w-2xl neo-brutalism-green pt-4 pb-12 px-8;
+  }
+
   .neo-btn {
     @apply py-3 px-6 rounded-lg text-blue-500 text-center font-semibold sm:w-1/2 w-[90%] -bottom-5 absolute mx-auto right-0 left-0 flex justify-center items-center gap-3;
+  }
+
+  .neo-btn-green {
+    @apply py-3 px-6 rounded-lg text-green-600 text-center font-semibold sm:w-1/2 w-[90%] -bottom-5 absolute mx-auto right-0 left-0 flex justify-center items-center gap-3;
   }
 
   .cta {
@@ -175,9 +183,18 @@ body:has(.card[data-color="green"]:hover) {
     0.65vmin 1vmin #0092db, 1vmin 0.65vmin #0092db;
 }
 
+.neo-brutalism-green {
+  background: #489436;
+  position: relative;
+  border-radius: 10px;
+  border: #489436;
+  box-shadow: 0.6vmin 0.6vmin #377c26, 1vmin 1vmin #7bb365, 1vmin 1vmin #7bb365,
+    0.65vmin 1vmin #7bb365, 1vmin 0.65vmin #7bb365;
+}
+
 .neo-brutalism-white {
   background: #fff;
   border: #fff;
-  box-shadow: 0.6vmin 0.6vmin #fff, 1vmin 1vmin #d2e4ff, 1vmin 1vmin #d2e4ff,
-    0.65vmin 1vmin #d2e4ff, 1vmin 0.65vmin #d2e4ff;
+  box-shadow: 0.6vmin 0.6vmin #fff, 1vmin 1vmin #81b95e, 1vmin 1vmin #81b95e,
+    0.65vmin 1vmin #81b95e, 1vmin 0.65vmin #81b95e;
 }
