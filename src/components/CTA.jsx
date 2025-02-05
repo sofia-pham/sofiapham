@@ -8,7 +8,10 @@ const CTA = () => {
         <p className="cta-text mb-4">
           Want to get in touch? <br className="sm:block hidden" />
         </p>
-        <Link to="/contact" className="btn">
+        <Link
+          to="/contact"
+          className="bg-green-600 text-white font-semibold inline-flex items-center justify-center px-5 py-3  rounded-lg"
+        >
           Contact Me!
         </Link>
       </div>
