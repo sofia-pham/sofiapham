@@ -62,6 +62,11 @@ const Contact = () => {
           text: "Failed to send message. Please try again later or send me an email directly!",
           type: "danger",
         });
+        setTimeout(() => {
+          hideAlert();
+          setCurrentAnimation("walking1");
+          setForm({ name: "", email: "", message: "" });
+        }, 3000);
       });
   };
 
