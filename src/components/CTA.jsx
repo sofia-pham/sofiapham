@@ -10,7 +10,7 @@ const CTA = () => {
         </p>
         <Link
           to="/contact"
-          className="bg-green-600 text-white font-semibold inline-flex items-center justify-center px-5 py-3  rounded-lg"
+          className="bg-green-800 text-white font-semibold inline-flex items-center justify-center px-5 py-3 rounded-lg hover:bg-green-600"
         >
           Contact Me!
         </Link>

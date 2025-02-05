@@ -82,7 +82,7 @@ const Home = () => {
           />
           <Cat
             isRotating={isRotating}
-            // position={catPosition}
+            position={catPosition}
             scale={catScale}
             rotation={[0, 35, 0]}
             targetPosition={stagePositions[currentStage]}

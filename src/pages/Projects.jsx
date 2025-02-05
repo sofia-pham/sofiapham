@@ -30,7 +30,11 @@ const Projects = () => {
         <span className="text-green-600 font-semibold"> Projects </span>
       </h1>
       <div className="mt-5 flex flex-col gap-3 text-slate-500">
-        <p> WRITE SOMETHING </p>
+        <p>
+          I'm working on these projects to sharpen my skills and challenge
+          myself. Each project helps me grow as a developer and bring my ideas
+          to life! 🚀
+        </p>
       </div>
       <div className="flex flex-wrap my-20 gap-16">
         {projects.map((project) => (
@@ -49,7 +53,11 @@ const Projects = () => {
               <h4 className="text-2xl font-poppins font-semibold">
                 {project.name}
               </h4>
-              <p className="mt-2 text-slate-500"> {project.description} </p>
+              <p className="mt-2 text-slate-500">
+                {project.description.split("\n").map((line, index) => (
+                  <p key={index}>{line}</p>
+                ))}
+              </p>
               <div className="mt-5 flex items-center gap-2 font-poppins">
                 <Link
                   to={project.link}
