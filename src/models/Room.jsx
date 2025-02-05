@@ -7,10 +7,17 @@ import { useGLTF } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 import { a } from "@react-spring/three";
 // a.group means an animated group
+import * as THREE from "three";
 
 import roomScene from "../assets/3D models/room.glb";
 
-const Room = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
+const Room = ({
+  isRotating,
+  setIsRotating,
+  setCurrentStage,
+  catPosition,
+  ...props
+}) => {
   const roomRef = useRef();
 
   // three js renderers
@@ -20,8 +27,8 @@ const Room = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
   // get ref of last mouse position
   const lastX = useRef(0);
   // how fast the room should rotate and continue to move
-  const rotationSpeed = useRef(0);
-  const dampingFactor = 0.95;
+  // const rotationSpeed = useRef(0);
+  // const dampingFactor = 0.95;
 
   // handling when the mouse is clicked and held down
   const handlePointerDown = (e) => {
@@ -32,9 +39,9 @@ const Room = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
     setIsRotating(true);
 
     // to know if it's a touch event or mouse event
-    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    // const clientX = e.touches ? e.touches[0].clientX : e.clientX;
 
-    lastX.current = clientX;
+    // lastX.current = clientX;
   };
 
   // handling when the mouse is released, stop rotation
@@ -47,76 +54,92 @@ const Room = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
   };
 
   // handling when the mouse is moved
-  const handlePointerMove = (e) => {
-    // prevents mouse click from affecting other elements
-    e.stopPropagation();
-    // won't reload page when mouse is held down
-    e.preventDefault();
+  // const handlePointerMove = (e) => {
+  //   // prevents mouse click from affecting other elements
+  //   e.stopPropagation();
+  //   // won't reload page when mouse is held down
+  //   e.preventDefault();
 
-    if (isRotating) {
-      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+  //   if (isRotating) {
+  //     const clientX = e.touches ? e.touches[0].clientX : e.clientX;
 
-      // finding the change in horizontal position
-      const delta = (clientX - lastX.current) / viewport.width;
+  //     // finding the change in horizontal position
+  //     const delta = (clientX - lastX.current) / viewport.width;
 
-      // updating room rotation
-      roomRef.current.rotation.y += delta * Math.PI * 0.1;
+  //     // updating room rotation
+  //     roomRef.current.rotation.y += delta * Math.PI * 0.1;
 
-      lastX.current = clientX;
+  //     lastX.current = clientX;
 
-      rotationSpeed.current = delta * 0.1 * Math.PI;
-    }
-  };
+  //     rotationSpeed.current = delta * 0.1 * Math.PI;
+  //   }
+  // };
 
-  // hook, applied to every single frame
-  useFrame(() => {
-    // if not rotating, reduce the speed of rotation
-    if (!isRotating) {
-      rotationSpeed.current *= dampingFactor;
+  // // hook, applied to every single frame
+  // useFrame(() => {
+  //   if (!isRotating) {
+  //     rotationSpeed.current *= dampingFactor;
 
-      // if the speed is very low, set it to 0, stop rotating
-      if (Math.abs(rotationSpeed.current) < 0.01) {
-        rotationSpeed.current = 0;
+  //     if (Math.abs(rotationSpeed.current) < 0.01) {
+  //       rotationSpeed.current = 0;
+  //     }
+
+  //     roomRef.current.rotation.y += rotationSpeed.current;
+  //   } else {
+  //     if (roomRef.current) {
+  //       // Adjusted min and max rotation (less than 0 and π but still covering 180°)
+  //       const MIN_ROTATION = -0.15; // Slightly above 0
+  //       const MAX_ROTATION = Math.PI - 0.15; // Slightly below π
+
+  //       let newRotation = roomRef.current.rotation.y;
+  //       newRotation = Math.max(
+  //         MIN_ROTATION,
+  //         Math.min(MAX_ROTATION, newRotation)
+  //       );
+
+  //       roomRef.current.rotation.y = newRotation;
+
+  //       // Normalize for stage calculation
+  //       const normalizedRotation = newRotation;
+
+  //       switch (true) {
+  //         case normalizedRotation >= (3 * Math.PI) / 4 &&
+  //           normalizedRotation <= MAX_ROTATION:
+  //           setCurrentStage(4);
+  //           break;
+  //         case normalizedRotation >= Math.PI / 2 &&
+  //           normalizedRotation < (3 * Math.PI) / 4:
+  //           setCurrentStage(3);
+  //           break;
+  //         case normalizedRotation >= Math.PI / 4 &&
+  //           normalizedRotation < Math.PI / 2:
+  //           setCurrentStage(2);
+  //           break;
+  //         case normalizedRotation >= MIN_ROTATION &&
+  //           normalizedRotation < Math.PI / 4:
+  //           setCurrentStage(1);
+  //           break;
+  //         default:
+  //           setCurrentStage(null);
+  //       }
+  //     }
+  //   }
+  // });
+
+  useEffect(() => {
+    if (catPosition) {
+      // Determine stage based on cat's position
+      if (catPosition.equals(new THREE.Vector3(0, -1.5, 2))) {
+        setCurrentStage(1);
+      } else if (catPosition.equals(new THREE.Vector3(1, -1.5, 2.8))) {
+        setCurrentStage(2);
+      } else if (catPosition.equals(new THREE.Vector3(-1.5, -1.5, 1))) {
+        setCurrentStage(3);
+      } else if (catPosition.equals(new THREE.Vector3(-2, -1.5, -2))) {
+        setCurrentStage(4);
       }
-
-      roomRef.current.rotation.y += rotationSpeed.current;
-    } else {
-      if (roomRef.current) {
-        // Update the rotation value
-        let newRotation = roomRef.current.rotation.y;
-
-        // Prevent rotation from exceeding 180 degrees
-        newRotation = Math.max(0.2, Math.min(Math.PI, newRotation)); // Clamp to [0, Math.PI]
-
-        // Apply the clamped rotation back to the room
-        roomRef.current.rotation.y = newRotation;
-
-        // Normalize the rotation for stage calculation
-        const normalizedRotation = newRotation;
-
-        // Set the current stage based on the normalized rotation
-        switch (true) {
-          case normalizedRotation >= (3 * Math.PI) / 4 &&
-            normalizedRotation <= Math.PI:
-            setCurrentStage(4);
-            break;
-          case normalizedRotation >= Math.PI / 2 &&
-            normalizedRotation < (3 * Math.PI) / 4:
-            setCurrentStage(3);
-            break;
-          case normalizedRotation >= Math.PI / 4 &&
-            normalizedRotation < Math.PI / 2:
-            setCurrentStage(2);
-            break;
-          case normalizedRotation >= 0 && normalizedRotation < Math.PI / 4:
-            setCurrentStage(1);
-            break;
-          default:
-            setCurrentStage(null);
-        }
-      }
     }
-  });
+  }, [catPosition, setCurrentStage]);
 
   useEffect(() => {
     // attach elements to canvas because we're clicking on the canvas not the screen
@@ -125,15 +148,16 @@ const Room = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
     // add event listeners for all pointers
     canvas.addEventListener("pointerdown", handlePointerDown);
     canvas.addEventListener("pointerup", handlePointerUp);
-    canvas.addEventListener("pointermove", handlePointerMove);
+    // canvas.addEventListener("pointermove", handlePointerMove);
 
     // removing events when we exit the page
     return () => {
       canvas.removeEventListener("pointerdown", handlePointerDown);
       canvas.removeEventListener("pointerup", handlePointerUp);
-      canvas.removeEventListener("pointermove", handlePointerMove);
+      // canvas.removeEventListener("pointermove", handlePointerMove);
     };
-  }, [gl, handlePointerDown, handlePointerUp, handlePointerMove]);
+  }, [gl, handlePointerDown, handlePointerUp]);
+  // handlePointerMove removed from above
 
   return (
     <a.group {...props} ref={roomRef}>
