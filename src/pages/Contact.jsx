@@ -62,6 +62,11 @@ const Contact = () => {
           text: "Failed to send message. Please try again later or send me an email directly!",
           type: "danger",
         });
+        setTimeout(() => {
+          hideAlert();
+          setCurrentAnimation("walking1");
+          setForm({ name: "", email: "", message: "" });
+        }, 3000);
       });
   };
 
@@ -77,7 +82,7 @@ const Contact = () => {
       shadow = [0, -2.3, 0];
     } else {
       screenScale = [1.3, 1.3, 1.3];
-      screenPosition = [0.5, -1.3, 0];
+      screenPosition = [0.5, -2.7, 0];
       shadow = [0, -2.7, 0];
     }
 

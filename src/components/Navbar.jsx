@@ -1,7 +1,24 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+      if (window.innerWidth >= 768) {
+        setIsOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // TODO: pls remember to do mobile compatibility
+
   return (
     <header className="header">
       <NavLink
@@ -12,6 +29,48 @@ const Navbar = () => {
           SOFIA PHAM
         </p>
       </NavLink>
+      {/* {isMobile ? (
+        // Mobile Menu
+        <>
+          <button
+            className="text-2xl text-white"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? "✖" : "☰"}
+          </button>
+          {isOpen && (
+            <nav className="absolute top-16 left-0 w-full bg-white shadow-lg flex flex-col items-center space-y-6 py-6">
+              <NavLink
+                to="/about"
+                className={({ isActive }) =>
+                  isActive ? "text-green-600" : "text-black"
+                }
+                onClick={() => setIsOpen(false)}
+              >
+                About
+              </NavLink>
+              <NavLink
+                to="/projects"
+                className={({ isActive }) =>
+                  isActive ? "text-green-600" : "text-black"
+                }
+                onClick={() => setIsOpen(false)}
+              >
+                Projects
+              </NavLink>
+              <NavLink
+                to="/contact"
+                className={({ isActive }) =>
+                  isActive ? "text-green-600" : "text-black"
+                }
+                onClick={() => setIsOpen(false)}
+              >
+                Contact
+              </NavLink>
+            </nav>
+          )}
+        </>
+      ) : ( */}
       <nav className="flex text-lg gap-7 font-medium">
         <NavLink
           to="/about"
@@ -38,6 +97,7 @@ const Navbar = () => {
           Contact
         </NavLink>
       </nav>
+      {/* )} */}
     </header>
   );
 };

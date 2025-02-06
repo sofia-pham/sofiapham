@@ -3,96 +3,78 @@ import { useAnimations, useGLTF } from "@react-three/drei";
 
 import catScene from "../assets/3D models/cat.glb";
 import { useFrame, useThree } from "@react-three/fiber";
-import * as THREE from "three";
 import { a } from "@react-spring/three";
 
-// const Cat = ({ isRotating, targetPosition, ...props }) => {
-//   const catRef = useRef();
-//   const { nodes, materials, animations } = useGLTF(catScene);
-//   const { actions } = useAnimations(animations, catRef);
-//   const { camera } = useThree();
-
-//   useEffect(() => {
-//     console.log(isRotating);
-//     if (isRotating) {
-//       actions["typing"]?.fadeOut(0.5);
-//       actions["walking1"]?.reset().fadeIn(0.5).play();
-//     } else {
-//       actions["walking1"]?.fadeOut(0.5);
-//       actions["typing"]?.reset().fadeIn(0.5).play();
-//     }
-//   }, [actions, isRotating, targetPosition]);
-
-//   // useFrame(() => {
-//   //   if (!catRef.current) return;
-
-//   //   // Move Cat Smoothly to Target Position
-//   //   catRef.current.position.lerp(targetPosition, 0.01);
-
-//   //   // Update Camera to Follow Cat with an Offset
-//   //   const offset = new THREE.Vector3(0, 1, 4); // Keep camera above & behind
-//   //   const targetCameraPosition = catRef.current.position.clone().add(offset);
-//   //   camera.position.lerp(targetCameraPosition, 0.1);
-
-//   //   const lookAtPosition = catRef.current
-//   //     .getObjectByName("spine")
-//   //     .position.clone();
-//   //   lookAtPosition.y += 1;
-//   //   camera.lookAt(lookAtPosition);
-//   // });
-
-const Cat = ({ isRotating, setCatPosition, ...props }) => {
+const Cat = ({ isRotating, setCurrentStage, currentStage, ...props }) => {
   const catRef = useRef();
   const { camera, gl, scene } = useThree();
   const { nodes, materials, animations } = useGLTF(catScene);
   const { actions } = useAnimations(animations, catRef);
 
   useEffect(() => {
+    const canvas = gl.domElement;
+
     const handleClick = (e) => {
-      const width = window.innerWidth;
-      const height = window.innerHeight;
-      const clickX = e.clientX;
-      const clickY = e.clientY;
+      const rect = canvas.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const canvasWidth = rect.width;
 
-      let newCatPosition;
+      // Only activate for right 75% of screen
+      if (clickX < canvasWidth * 0.25) return;
 
-      // Determine which of the four screen areas was clicked
-      if (clickX < width / 2 && clickY < height / 2) {
-        newCatPosition = new THREE.Vector3(0, -1.5, 2); // Top-left
-      } else if (clickX >= width / 2 && clickY < height / 2) {
-        newCatPosition = new THREE.Vector3(1, -1.5, 2.8); // Top-right
-      } else if (clickX < width / 2 && clickY >= height / 2) {
-        newCatPosition = new THREE.Vector3(-1.5, -1.5, 1); // Bottom-left
-      } else {
-        newCatPosition = new THREE.Vector3(-2, -1.5, -2); // Bottom-right
-      }
+      // Divide right 75% into 3 vertical sections (25% each)
+      const sectionWidth = (canvasWidth * 0.75) / 4;
+      const sectionIndex = Math.floor(
+        (clickX - canvasWidth * 0.25) / sectionWidth
+      );
 
-      setCatPosition(newCatPosition);
+      // Map sections to stages 2-4
+      const newStage = Math.min(4, 1 + sectionIndex);
+      setCurrentStage(newStage);
     };
 
-    window.addEventListener("click", handleClick);
-    return () => {
-      window.removeEventListener("click", handleClick);
-    };
-  }, [setCatPosition]);
-
-  useFrame(({ clock }) => {
-    // Smooth movement (optional)
-    if (catRef.position) {
-      catRef.position.lerp(catRef.position, 0.1);
-    }
-  });
+    canvas.addEventListener("click", handleClick);
+    return () => canvas.removeEventListener("click", handleClick);
+  }, [gl, setCurrentStage]);
 
   useEffect(() => {
-    console.log(isRotating);
+    // Fade out the current animation
     if (isRotating) {
-      actions["typing"]?.fadeOut(0.5);
-      actions["walking1"]?.reset().fadeIn(0.5).play();
+      actions["walking1"]?.reset().play();
     } else {
       actions["walking1"]?.fadeOut(0.5);
-      actions["typing"]?.reset().fadeIn(0.5).play();
+
+      // Handle transitions based on the current stage
+      switch (currentStage) {
+        case 1:
+          actions["waving"]?.reset().play();
+          break;
+        case 2:
+          actions["typing"]?.reset().play();
+          break;
+        case 3:
+          actions["idling"]?.reset().play();
+          break;
+        case 4:
+          actions["sitting"]?.reset().play();
+          break;
+        default:
+          actions["idling"]?.reset().play();
+      }
     }
-  }, [actions, isRotating]);
+
+    return () => {
+      Object.values(actions).forEach((action) => {
+        action?.fadeOut(0.5).stop();
+      });
+    };
+  }, [actions, isRotating, currentStage]);
+
+  useFrame(() => {
+    if (currentStage === 1) {
+      catRef.current.getObjectByName("spine006").lookAt(camera.position);
+    }
+  });
 
   return (
     <a.group ref={catRef} {...props}>

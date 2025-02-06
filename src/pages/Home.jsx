@@ -4,7 +4,6 @@ import Loader from "../components/Loader";
 import Room from "../models/Room";
 import Sky from "../models/Sky";
 import Cat from "../models/Cat";
-import { ContactShadows } from "@react-three/drei";
 import HomeInfo from "../components/HomeInfo";
 import * as THREE from "three";
 import Camera from "../components/Camera";
@@ -12,7 +11,6 @@ import Camera from "../components/Camera";
 const Home = () => {
   const [isRotating, setIsRotating] = useState(false);
   const [currentStage, setCurrentStage] = useState(1);
-  const [catPosition, setCatPosition] = useState(new THREE.Vector3(0, -1.5, 2));
 
   // to make room look nice on all devices
   const adjustRoomForScreen = () => {
@@ -31,29 +29,33 @@ const Home = () => {
   };
   const [roomScale, roomPosition, roomRotation] = adjustRoomForScreen();
 
-  const stagePositions = {
-    1: new THREE.Vector3(0, -1.5, 2),
-    2: new THREE.Vector3(1, -1.5, 2.8),
-    3: new THREE.Vector3(-1.5, -1.5, 1),
-    4: new THREE.Vector3(-2, -1.5, -2),
-  };
-
   const adjustCatForScreen = () => {
     let catScale = [1, 1, 1];
-    let catRotation;
+    let catRotation, catPosition;
 
-    if (currentStage === 1) {
-      catRotation = [0, 3.7, 0];
-    } else if (currentStage === 2) {
-      catRotation = [0, 3.7, 0];
-    } else if (currentStage === 3) {
-      catRotation = [0, -1.2, 0];
-    } else if (currentStage === 4) {
-      catRotation = [0, 0.8, 0];
+    switch (currentStage) {
+      case 1: // First section (25-43.75% of screen)
+        catPosition = new THREE.Vector3(-4.3, -2.8, 3.3);
+        catRotation = [0, 0.8, 0];
+        break;
+      case 2: // Second section (43.75-62.5% of screen)
+        catPosition = new THREE.Vector3(-0.2, -2.7, 1.4);
+        catRotation = [0, 3.5, 0];
+        break;
+      case 3: // Third section (62.5-81.25% of screen)
+        catPosition = new THREE.Vector3(5.3, -2.1, -1);
+        catRotation = [0, 4, 0];
+        break;
+      case 4: // Fourth section (81.25-100% of screen)
+        catPosition = new THREE.Vector3(6.8, -2.6, 3);
+        catRotation = [0, 5.3, 0];
+        break;
     }
-    return [catScale, catRotation];
+
+    return [catScale, catRotation, catPosition];
   };
-  const [catScale, catRotation] = adjustCatForScreen();
+
+  const [catScale, catRotation, catPosition] = adjustCatForScreen();
 
   return (
     <section className="w-full h-screen relative">
@@ -80,7 +82,6 @@ const Home = () => {
             isRotating={isRotating}
             setIsRotating={setIsRotating}
             setCurrentStage={setCurrentStage}
-            catPosition={catPosition}
             position={roomPosition}
             scale={roomScale}
             rotation={roomRotation}
@@ -90,7 +91,8 @@ const Home = () => {
             rotation={catRotation}
             isRotating={isRotating}
             position={catPosition}
-            setCatPosition={setCatPosition}
+            setCurrentStage={setCurrentStage}
+            currentStage={currentStage}
           />
         </Suspense>
       </Canvas>
