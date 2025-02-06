@@ -82,7 +82,7 @@ const Contact = () => {
       shadow = [0, -2.3, 0];
     } else {
       screenScale = [1.3, 1.3, 1.3];
-      screenPosition = [0.5, -1.3, 0];
+      screenPosition = [0.5, -2.7, 0];
       shadow = [0, -2.7, 0];
     }
 
