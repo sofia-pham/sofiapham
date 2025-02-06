@@ -47,8 +47,8 @@ const Home = () => {
         catRotation = [0, 4, 0];
         break;
       case 4: // Fourth section (81.25-100% of screen)
-        catPosition = new THREE.Vector3(7.6, -1.5, 2.5);
-        catRotation = [0, 5.4, 0];
+        catPosition = new THREE.Vector3(6.8, -2.6, 3);
+        catRotation = [0, 5.3, 0];
         break;
     }
 

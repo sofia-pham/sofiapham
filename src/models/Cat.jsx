@@ -3,7 +3,6 @@ import { useAnimations, useGLTF } from "@react-three/drei";
 
 import catScene from "../assets/3D models/cat.glb";
 import { useFrame, useThree } from "@react-three/fiber";
-import * as THREE from "three";
 import { a } from "@react-spring/three";
 
 const Cat = ({ isRotating, setCurrentStage, currentStage, ...props }) => {
@@ -39,25 +38,39 @@ const Cat = ({ isRotating, setCurrentStage, currentStage, ...props }) => {
   }, [gl, setCurrentStage]);
 
   useEffect(() => {
+    // Fade out the current animation
     if (isRotating) {
       actions["walking1"]?.reset().play();
     } else {
-      if (currentStage === 1) {
-        actions["walking1"]?.fadeOut(0.5);
-        actions["waving"]?.reset().fadeIn(0.5).play();
-      } else if (currentStage === 2) {
-        actions["walking1"]?.fadeOut(0.5);
-        actions["typing"]?.reset().fadeIn(0.5).play();
-      } else if (currentStage === 3) {
-      } else if (currentStage === 4) {
-      } else {
-        actions["walking1"]?.fadeOut(0.5);
-        actions["typing"]?.reset().fadeIn(0.5).play();
+      actions["walking1"]?.fadeOut(0.5);
+
+      // Handle transitions based on the current stage
+      switch (currentStage) {
+        case 1:
+          actions["waving"]?.reset().play();
+          break;
+        case 2:
+          actions["typing"]?.reset().play();
+          break;
+        case 3:
+          actions["idling"]?.reset().play();
+          break;
+        case 4:
+          actions["sitting"]?.reset().play();
+          break;
+        default:
+          actions["idling"]?.reset().play();
       }
     }
-  }, [actions, isRotating]);
 
-  useFrame((state) => {
+    return () => {
+      Object.values(actions).forEach((action) => {
+        action?.fadeOut(0.5).stop();
+      });
+    };
+  }, [actions, isRotating, currentStage]);
+
+  useFrame(() => {
     if (currentStage === 1) {
       catRef.current.getObjectByName("spine006").lookAt(camera.position);
     }
