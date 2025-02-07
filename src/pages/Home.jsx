@@ -15,7 +15,7 @@ const Home = () => {
   // to make room look nice on all devices
   const adjustRoomForScreen = () => {
     let screenScale, screenPosition;
-    let rotation = [0.2, -50, 0];
+    let rotation = [0.2, -50, -0.05];
 
     if (window.innerWidth < 768) {
       screenScale = [0.9, 0.9, 0.9];
@@ -34,21 +34,21 @@ const Home = () => {
     let catRotation, catPosition;
 
     switch (currentStage) {
-      case 1: // First section (25-43.75% of screen)
+      case 1:
         catPosition = new THREE.Vector3(-4.3, -2.8, 3.3);
         catRotation = [0, 0.8, 0];
         break;
-      case 2: // Second section (43.75-62.5% of screen)
+      case 2:
         catPosition = new THREE.Vector3(-0.2, -2.7, 1.4);
         catRotation = [0, 3.5, 0];
         break;
-      case 3: // Third section (62.5-81.25% of screen)
+      case 3:
         catPosition = new THREE.Vector3(5.3, -2.1, -1);
         catRotation = [0, 4, 0];
         break;
-      case 4: // Fourth section (81.25-100% of screen)
-        catPosition = new THREE.Vector3(6.8, -2.6, 3);
-        catRotation = [0, 5.3, 0];
+      case 4:
+        catPosition = new THREE.Vector3(6.8, -2.3, 2.8);
+        catRotation = [0, 5.2, 0];
         break;
     }
 
@@ -57,10 +57,35 @@ const Home = () => {
 
   const [catScale, catRotation, catPosition] = adjustCatForScreen();
 
+  const BubbleIndicator = ({ x, y }) => {
+    return (
+      <div
+        className="absolute w-5 h-5 md:w-8 md:h-8 bg-green-800 opacity-70 rounded-full animate-bounce"
+        style={{
+          top: `${y}px`, // Position bubble by Y-coordinate
+          left: `${x}px`, // Position bubble by X-coordinate
+          pointerEvents: "none", // Allows clicks to pass through
+          transform: "translate(-50%, -50%)", // Center the bubble on the exact X,Y
+        }}
+      />
+    );
+  };
+
+  const bubblePositions = [
+    { x: 650, y: -750 }, // Bubble 1
+    { x: 925, y: -600 }, // Bubble 2
+    { x: 1225, y: -700 }, // Bubble 3
+    { x: 1630, y: -370 }, // Bubble 4
+  ];
   return (
     <section className="w-full h-screen relative">
-      <div className="absolute top-28 left-0 right-0 z-10 flex items-center justify-center">
+      <div className="absolute bottom-28 left-0 right-0 z-10 flex items-center justify-center">
         {currentStage && <HomeInfo currentStage={currentStage} />}
+      </div>
+      <div className="absolute bottom-0 left-0 right- z-10">
+        {bubblePositions.map((pos, index) => (
+          <BubbleIndicator key={index} x={pos.x} y={pos.y} />
+        ))}
       </div>
       <Canvas
         className={`w-full h-screen ${

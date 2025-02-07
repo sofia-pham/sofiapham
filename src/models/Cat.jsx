@@ -38,13 +38,10 @@ const Cat = ({ isRotating, setCurrentStage, currentStage, ...props }) => {
   }, [gl, setCurrentStage]);
 
   useEffect(() => {
-    // Fade out the current animation
     if (isRotating) {
       actions["walking1"]?.reset().play();
     } else {
-      actions["walking1"]?.fadeOut(0.5);
-
-      // Handle transitions based on the current stage
+      actions["walking1"]?.fadeOut(0.5).stop();
       switch (currentStage) {
         case 1:
           actions["waving"]?.reset().play();
