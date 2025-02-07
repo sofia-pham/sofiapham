@@ -53,7 +53,7 @@ const Home = () => {
         catRotation = [0, 0.8, 0];
         break;
       case 2:
-        catPosition = new THREE.Vector3(-0.2, -2.7, 1.4);
+        catPosition = new THREE.Vector3(0.1, -2, 2);
         catRotation = [0, 3.5, 0];
         break;
       case 3:
@@ -61,7 +61,7 @@ const Home = () => {
         catRotation = [0, 4, 0];
         break;
       case 4:
-        catPosition = new THREE.Vector3(6.8, -2.3, 2.8);
+        catPosition = new THREE.Vector3(7, -2.5, 2.8);
         catRotation = [0, 5.2, 0];
         break;
     }
