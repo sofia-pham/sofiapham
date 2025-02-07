@@ -78,7 +78,7 @@ const Contact = () => {
 
     if (window.innerWidth < 960) {
       screenScale = [1.3, 1.3, 1.3];
-      screenPosition = [0, -1, 0];
+      screenPosition = [0, -2.3, 0];
       shadow = [0, -2.3, 0];
     } else {
       screenScale = [1.3, 1.3, 1.3];
@@ -99,8 +99,6 @@ const Contact = () => {
           <form
             className="w-full flex flex-col gap-7 mt-14"
             name="contact"
-            // method="POST"
-            // data-netlify="true"
             onSubmit={handleSubmit}
           >
             <label className="text-black-500 font-semibold">
@@ -147,7 +145,7 @@ const Contact = () => {
             </label>
             <button
               type="submit"
-              className="btn"
+              className="text-white bg-green-800 hover:bg-green-600 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
               disabled={isLoading}
               onFocus={handleFocus}
               onBlur={handleBlur}
@@ -182,13 +180,13 @@ const Contact = () => {
           </Canvas>
         </div>
       </div>
-      <div className="w-full flex flex-col justify-center items-center space-y-1 text-center lg:pt-20">
+      <div className="mt-auto w-full flex flex-col justify-center items-center space-y-1 text-center lg:pt-10">
         <h1 className="text-black-500 font-semibold text-center text-lg">
           Other Ways to Contact Me:
         </h1>
         <div className="flex lg:flex-row flex-col">
           <p className="text-black-500 font-semibold text-center lg:mr-4">
-            📧Email me:
+            📧 Email me:
             <a
               href="mailto:sof.pham@gmail.com"
               className="text-green-600 hover:underline ml-2"
@@ -197,7 +195,7 @@ const Contact = () => {
             </a>
           </p>
           <p className="text-black-500 font-semibold text-center">
-            💼Connect with me:
+            💼 Connect with me:
             <a
               href="https://linkedin.com/in/sofia-pham"
               target="_blank"

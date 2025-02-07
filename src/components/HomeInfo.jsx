@@ -4,9 +4,12 @@ import { Link } from "react-router-dom";
 // component to reuse code for diff stages
 const InfoBox = ({ text, link, btnText }) => {
   return (
-    <div className="info-box-green">
-      <p className="font-medium sm:text-xl text-center">{text}</p>
-      <Link to={link} className="neo-brutalism-white neo-btn-green">
+    <div className="relative bg-green-600 py-6 px-8 rounded-xl shadow-2xl text-white items-center flex flex-col">
+      <p className="font-medium text-lg sm:text-xl text-center mb-6">{text}</p>
+      <Link
+        to={link}
+        className="absolute bottom-[-20px] bg-white text-green-600 font-semibold text-lg px-4 py-2 rounded-lg text-center hover:bg-green-800 hover:text-white shadow-md hover:shadow-lg"
+      >
         {btnText}
       </Link>
     </div>
@@ -15,23 +18,23 @@ const InfoBox = ({ text, link, btnText }) => {
 
 const renderContent = {
   1: (
-    <h1 className="sm:text-xl sm:leading-snug text-center neo-brutalism-green py-4 px-8 text-white mx-5">
+    <h1 className="sm:text-xl sm:leading-snug text-center bg-green-600 rounded-xl py-4 px-8 text-white mx-5">
       Heyy! My name is <span className="font-semibold">Sofia</span> 👋
       <br />
     </h1>
   ),
   2: (
     <InfoBox
-      text="I'm a CS student at TMU and I'm interested in Software Development! 🚀 "
+      text="I'm a CS student at TMU, interested in Software Development!"
       link="/about"
-      btnText="Learn More About Me!"
+      btnText="Learn more about me!"
     />
   ),
   3: (
     <InfoBox
       text="I've worked on projects through work, school, and personal interests!"
       link="/projects"
-      btnText="Learn More About My Projects!"
+      btnText="Learn more about my projects!"
     />
   ),
   4: <InfoBox text="Ways to contact me" link="/contact" btnText="Here!" />,
