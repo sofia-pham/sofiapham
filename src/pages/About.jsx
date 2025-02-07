@@ -37,27 +37,35 @@ const About = () => {
         <span className="text-green-600 font-semibold"> Sofia </span>
         (she/her)👋
       </h1>
-      <div className="mt-5 flex flex-col gap-3 text-slate-500">
-        <p>
-          My name is Sofia Pham (she/her), and I'm a Computer Science student at
-          TMU. I discovered my passion for coding and have never looked back
-          since then! I’m particularly interested in software development, with
-          a focus on web and game development.
-        </p>
-        <h2 className="font-semibold">🌈 Goals for 2025</h2>
-        <ul>
-          <li>
-            - Master data structures and algorithms to ace technical interviews.
-          </li>
-          <li>
-            - Build and deploy my personal website with interactive 3D assets by
-            the end of the semester.
-          </li>
-          <li>
-            - Develop and deploy a full-stack web application/game to enhance my
-            portfolio.
-          </li>
-        </ul>
+      <div className="mt-5 flex flex-row gap-3 text-slate-500">
+        <img
+          src="https://media.licdn.com/dms/image/v2/D5603AQFa5rmWNdYnJw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1702377847715?e=1744243200&v=beta&t=nXQkOYWxD9kYdamjcNwR6SRSWqOtSOj76_i7sUsMv5Y"
+          alt="Sofia"
+          className="w-52 h-52 rounded-lg items-center justify-center"
+        />
+        <div className="flex flex-col gap-2">
+          <p>
+            My name is Sofia Pham (she/her), and I'm a CS student at TMU. I
+            discovered my passion for coding and have never looked back since!
+            I’m particularly interested in software development, with a focus on
+            web and game development.
+          </p>
+          <h2 className="font-semibold">🌈 Goals for 2025</h2>
+          <ul>
+            <li>
+              - Master data structures and algorithms to ace technical
+              interviews
+            </li>
+            <li>
+              - Build and deploy my personal website with interactive 3D assets
+              by the end of the semester ✔✔
+            </li>
+            <li>
+              - Develop and deploy a full-stack web application/game to enhance
+              my portfolio
+            </li>
+          </ul>
+        </div>
       </div>
       <div className="py-10 flex flex-col">
         <h3 className="subhead-text">My Skills</h3>
