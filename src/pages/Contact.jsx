@@ -78,7 +78,7 @@ const Contact = () => {
 
     if (window.innerWidth < 960) {
       screenScale = [1.3, 1.3, 1.3];
-      screenPosition = [0, -1, 0];
+      screenPosition = [0, -2.3, 0];
       shadow = [0, -2.3, 0];
     } else {
       screenScale = [1.3, 1.3, 1.3];
@@ -91,7 +91,7 @@ const Contact = () => {
   const [catScale, catPosition, catShadow] = adjustCatForScreen();
 
   return (
-    <section className="flex max-h-screen flex-col max-container">
+    <section className="flex max-h-full flex-col max-container">
       {alert.show && <Alert {...alert} />}
       <div className="flex flex-col lg:flex-row w-full">
         <div className="flex-1 min-w-[50%] flex flex-col">
@@ -99,8 +99,6 @@ const Contact = () => {
           <form
             className="w-full flex flex-col gap-7 mt-14"
             name="contact"
-            // method="POST"
-            // data-netlify="true"
             onSubmit={handleSubmit}
           >
             <label className="text-black-500 font-semibold">
