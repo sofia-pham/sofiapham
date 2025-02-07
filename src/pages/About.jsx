@@ -31,7 +31,7 @@ const About = () => {
   };
 
   return (
-    <section className="max-container">
+    <section className="max-container w-full">
       <h1 className="head-text">
         Heyy! I'm
         <span className="text-green-600 font-semibold"> Sofia </span>
@@ -41,9 +41,9 @@ const About = () => {
         <img
           src="https://media.licdn.com/dms/image/v2/D5603AQFa5rmWNdYnJw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1702377847715?e=1744243200&v=beta&t=nXQkOYWxD9kYdamjcNwR6SRSWqOtSOj76_i7sUsMv5Y"
           alt="Sofia"
-          className="w-52 h-52 rounded-lg items-center justify-center"
+          className="w-52 h-52 rounded-lg self-center"
         />
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-3">
           <p>
             My name is Sofia Pham (she/her), and I'm a CS student at TMU. I
             discovered my passion for coding and have never looked back since!
@@ -67,7 +67,7 @@ const About = () => {
           </ul>
         </div>
       </div>
-      <div className="py-10 flex flex-col">
+      <div className="py-16 flex flex-col">
         <h3 className="subhead-text">My Skills</h3>
         <div className="mt-16 flex flex-wrap gap-12">
           {skills.map((skill) => (
@@ -86,7 +86,7 @@ const About = () => {
       </div>
       <div className="py-16">
         <h3 className="subhead-text">Experiences</h3>
-        <div className="mt-12 flex">
+        <div className="mt-10 flex">
           <VerticalTimeline>
             {experiences.map((experience) => (
               <VerticalTimelineElement
@@ -140,7 +140,7 @@ const About = () => {
       </div>
       <div className="py-16 flex flex-col">
         <h3 className="subhead-text">Leadership</h3>
-        <div className="mt-12 flex">
+        <div className="mt-10 flex">
           <VerticalTimeline>
             {extracurriculars.map((extracurricular, index) => (
               <VerticalTimelineElement
