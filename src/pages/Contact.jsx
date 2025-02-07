@@ -6,6 +6,8 @@ import { ContactShadows } from "@react-three/drei";
 import useAlert from "../hooks/useAlert";
 import Alert from "../components/Alert";
 import emailjs from "@emailjs/browser";
+import { socialLinks } from "../constants";
+import { Link } from "react-router-dom";
 
 const Contact = () => {
   const formRef = useRef(null);
@@ -180,34 +182,26 @@ const Contact = () => {
           </Canvas>
         </div>
       </div>
-      <div className="mt-auto w-full flex flex-col justify-center items-center space-y-1 text-center lg:pt-10">
-        <h1 className="text-black-500 font-semibold text-center text-lg">
-          Other Ways to Contact Me:
-        </h1>
-        <div className="flex lg:flex-row flex-col">
-          <p className="text-black-500 font-semibold text-center lg:mr-4">
-            📧 Email me:
+      <div className="mt-auto w-full flex flex-col justify-center items-center text-center sm:pt-8 lg:pt-20">
+        <div className="flex justify-center items-center gap-8">
+          {socialLinks.map((link) => (
             <a
-              href="mailto:sof.pham@gmail.com"
-              className="text-green-600 hover:underline ml-2"
-            >
-              sof.pham@gmail.com
-            </a>
-          </p>
-          <p className="text-black-500 font-semibold text-center">
-            💼 Connect with me:
-            <a
-              href="https://linkedin.com/in/sofia-pham"
+              key={link.name}
+              href={link.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-green-600 hover:underline ml-2"
+              className="w-14 h-14 rounded-full bg-gray-100 hover:bg-gray-200 flex justify-center items-center transition-colors duration-200"
             >
-              Sofia Pham
+              <img
+                src={link.iconUrl}
+                alt={link.name}
+                className="w-8 h-8 object-contain"
+              />
             </a>
-          </p>
+          ))}
         </div>
       </div>
-      <div className="w-full flex justify-center items-center pt-10">
+      <div className="w-full flex justify-center items-center pt-6">
         <h1 className="text-gray-500 font-semibold text-center text-sm">
           💖 Thank you for stopping by! 😊
         </h1>

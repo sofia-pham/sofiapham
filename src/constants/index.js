@@ -23,7 +23,9 @@ import {
     website,
     finger,
     cat,
-    store
+    store,
+    linkedin,
+    email
 } from "../assets/icons";
 
 export const skills = [
@@ -225,9 +227,14 @@ export const projects = [
 
 export const socialLinks = [
     {
-        name: 'Contact',
-        iconUrl: contact,
-        link: '/contact',
+        name: 'Email',
+        iconUrl: email,
+        link: 'mailto: sof.pham@gmail.com',
+    },
+    {
+        name: 'LinkedIn',
+        iconUrl: linkedin,
+        link: 'https://www.linkedin.com/in/sofia-pham/',
     },
     {
         name: 'GitHub',

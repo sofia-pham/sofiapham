@@ -26,6 +26,7 @@ import website from './website.svg'
 import finger from './finger.svg'
 import cat from './cat.svg'
 import store from './store.svg'
+import email from './email.svg'
 
 
 export {
@@ -57,4 +58,5 @@ export {
     finger,
     cat,
     store,
+    email,
 }
