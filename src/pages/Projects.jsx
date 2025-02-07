@@ -31,9 +31,9 @@ const Projects = () => {
       </h1>
       <div className="mt-5 flex flex-col gap-3 text-slate-500">
         <p>
-          I'm working on these projects to sharpen my skills and challenge
-          myself. Each project helps me grow as a developer and bring my ideas
-          to life! 🚀
+          These are some projects I am working/worked on to sharpen my skills
+          and challenge myself. Each project helps me grow as a developer and
+          brings my ideas to life! 🚀
         </p>
       </div>
       <div className="flex flex-wrap my-20 gap-16">

@@ -190,7 +190,7 @@ export const projects = [
         iconUrl: website,
         theme: 'btn-back-white',
         name: 'Portfolio Website (this one!)',
-        description: `- Developed React, Tailwind, and Vite portfolio website focused on self-made 3D assets of my pet cat in Blender, rendered on DOM with WebGL and handling character animations and interactions with R3F and Three.JS \n- Implemented email solution using Email.JS with animated 3D feedback and environment variables \n- Designed responsive 3D viewer with GLTF pipeline optimization, React Suspense loading, and cross-component state management for smooth transitions between pages and sections`,
+        description: `- Developed React, Tailwind, and Vite portfolio website focused on self-made 3D assets of my pet cat in Blender, rendered on DOM with WebGL and handling character animations and interactions with R3F and Three.JS \n- Implemented email solution using Email.JS with animated 3D feedback and environment variables \n- Designed responsive 3D viewer with GLTF pipeline optimization, React Suspense loading, and cross-component state management for smooth transitions between pages and sections\n- Desktop compatibility only for now!`,
         link: 'https://github.com/sofia-pham/sofiapham.git',
     },
     {
