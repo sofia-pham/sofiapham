@@ -8,7 +8,7 @@ const InfoBox = ({ text, link, btnText }) => {
       <p className="font-medium text-lg sm:text-xl text-center mb-6">{text}</p>
       <Link
         to={link}
-        className="absolute bottom-[-20px] bg-white text-green-600 font-semibold text-lg px-4 py-2 rounded-lg text-center hover:bg-green-800 hover:text-white shadow-md hover:shadow-lg"
+        className="absolute bottom-[-15px] bg-white text-green-600 font-semibold text-lg px-6 py-2 rounded-lg text-center hover:bg-green-800 hover:text-white shadow-md hover:shadow-lg"
       >
         {btnText}
       </Link>
