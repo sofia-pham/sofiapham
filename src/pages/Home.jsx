@@ -8,6 +8,7 @@ import HomeInfo from "../components/HomeInfo";
 import * as THREE from "three";
 import Camera from "../components/Camera";
 import { useEffect } from "react";
+import { cat } from "../assets/icons";
 
 const Home = () => {
   const [isRotating, setIsRotating] = useState(false);
@@ -32,8 +33,8 @@ const Home = () => {
     let rotation = [0.2, -50, -0.05];
 
     if (window.innerWidth < 768) {
-      screenScale = [0.9, 0.9, 0.9];
-      screenPosition = [2.5, -3, 2];
+      screenScale = [0.8, 0.8, 0.8];
+      screenPosition = [1, -3, 2];
     } else {
       screenScale = [1, 1, 1];
       screenPosition = [2.5, -4, 2.6];
@@ -44,26 +45,48 @@ const Home = () => {
   const [roomScale, roomPosition, roomRotation] = adjustRoomForScreen();
 
   const adjustCatForScreen = () => {
-    let catScale = [1, 1, 1];
-    let catRotation, catPosition;
+    let catScale, catRotation, catPosition;
 
-    switch (currentStage) {
-      case 1:
-        catPosition = new THREE.Vector3(-4.3, -2.8, 3.3);
-        catRotation = [0, 0.8, 0];
-        break;
-      case 2:
-        catPosition = new THREE.Vector3(0.1, -2, 2);
-        catRotation = [0, 3.5, 0];
-        break;
-      case 3:
-        catPosition = new THREE.Vector3(5.3, -2.1, -1);
-        catRotation = [0, 4, 0];
-        break;
-      case 4:
-        catPosition = new THREE.Vector3(7, -2.5, 2.8);
-        catRotation = [0, 5.2, 0];
-        break;
+    if (window.innerWidth < 768) {
+      catScale = [0.8, 0.8, 0.8];
+      switch (currentStage) {
+        case 1:
+          catPosition = new THREE.Vector3(-3.3, -2.2, 3.3);
+          catRotation = [0, 0, 0];
+          break;
+        case 2:
+          catPosition = new THREE.Vector3(-1, -1.6, 1.4);
+          catRotation = [0, 3.5, 0];
+          break;
+        case 3:
+          catPosition = new THREE.Vector3(3, -1.7, -1);
+          catRotation = [0, 4, 0];
+          break;
+        case 4:
+          catPosition = new THREE.Vector3(4.7, -1.8, 2);
+          catRotation = [0, 5.5, 0];
+          break;
+      }
+    } else {
+      catScale = [1, 1, 1];
+      switch (currentStage) {
+        case 1:
+          catPosition = new THREE.Vector3(-4.3, -2.8, 3.3);
+          catRotation = [0, 0.8, 0];
+          break;
+        case 2:
+          catPosition = new THREE.Vector3(0.1, -2, 2);
+          catRotation = [0, 3.5, 0];
+          break;
+        case 3:
+          catPosition = new THREE.Vector3(5.3, -2.1, -1);
+          catRotation = [0, 4, 0];
+          break;
+        case 4:
+          catPosition = new THREE.Vector3(7, -2.5, 2.8);
+          catRotation = [0, 5.2, 0];
+          break;
+      }
     }
 
     return [catScale, catRotation, catPosition];
@@ -82,7 +105,7 @@ const Home = () => {
       <div className="absolute bottom-28 left-0 right-0 z-10 flex items-center justify-center">
         {currentStage && <HomeInfo currentStage={currentStage} />}
       </div>
-      <div className="absolute bottom-0 left-0 right- z-10">
+      <div className="absolute bottom-0 left-0 right-0 z-[5]">
         {bubblePositions.map((pos, index) => (
           <div
             key={index}

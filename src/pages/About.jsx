@@ -37,7 +37,7 @@ const About = () => {
         <span className="text-green-600 font-semibold"> Sofia </span>
         (she/her)👋
       </h1>
-      <div className="mt-5 flex flex-row gap-3 text-slate-500">
+      <div className="mt-10 flex lg:flex-row flex-col gap-3 text-slate-500">
         <img
           src="https://media.licdn.com/dms/image/v2/D5603AQFa5rmWNdYnJw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1702377847715?e=1744243200&v=beta&t=nXQkOYWxD9kYdamjcNwR6SRSWqOtSOj76_i7sUsMv5Y"
           alt="Sofia"
