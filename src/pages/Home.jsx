@@ -7,10 +7,24 @@ import Cat from "../models/Cat";
 import HomeInfo from "../components/HomeInfo";
 import * as THREE from "three";
 import Camera from "../components/Camera";
+import { useEffect } from "react";
 
 const Home = () => {
   const [isRotating, setIsRotating] = useState(false);
   const [currentStage, setCurrentStage] = useState(1);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [screenHeight, setScreenHeight] = useState(window.innerHeight);
+
+  // detect screen size to change location of clickable areas
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+      setScreenHeight(window.innerHeight);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   // to make room look nice on all devices
   const adjustRoomForScreen = () => {
@@ -57,25 +71,11 @@ const Home = () => {
 
   const [catScale, catRotation, catPosition] = adjustCatForScreen();
 
-  const BubbleIndicator = ({ x, y }) => {
-    return (
-      <div
-        className="absolute w-5 h-5 md:w-8 md:h-8 bg-green-800 opacity-70 rounded-full animate-bounce"
-        style={{
-          top: `${y}px`, // Position bubble by Y-coordinate
-          left: `${x}px`, // Position bubble by X-coordinate
-          pointerEvents: "none", // Allows clicks to pass through
-          transform: "translate(-50%, -50%)", // Center the bubble on the exact X,Y
-        }}
-      />
-    );
-  };
-
   const bubblePositions = [
-    { x: 650, y: -750 }, // Bubble 1
-    { x: 925, y: -600 }, // Bubble 2
-    { x: 1225, y: -700 }, // Bubble 3
-    { x: 1630, y: -370 }, // Bubble 4
+    { x: screenWidth * 0.335, y: screenHeight * -0.82 },
+    { x: screenWidth * 0.48, y: screenHeight * -0.655 },
+    { x: screenWidth * 0.635, y: screenHeight * -0.765 },
+    { x: screenWidth * 0.86, y: screenHeight * -0.4 },
   ];
   return (
     <section className="w-full h-screen relative">
@@ -84,7 +84,16 @@ const Home = () => {
       </div>
       <div className="absolute bottom-0 left-0 right- z-10">
         {bubblePositions.map((pos, index) => (
-          <BubbleIndicator key={index} x={pos.x} y={pos.y} />
+          <div
+            key={index}
+            className="absolute w-8 h-8 bg-green-800 opacity-50 rounded-full animate-bounce"
+            style={{
+              top: `${pos.y}px`,
+              left: `${pos.x}px`,
+              transform: "translate(-50%, -50%)",
+              pointerEvents: "none",
+            }}
+          />
         ))}
       </div>
       <Canvas
