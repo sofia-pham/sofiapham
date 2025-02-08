@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 // component to reuse code for diff stages
 const InfoBox = ({ text, link, btnText }) => {
   return (
-    <div className="relative bg-green-600 py-6 px-8 rounded-xl shadow-2xl text-white items-center flex flex-col">
-      <p className="font-medium text-lg sm:text-xl text-center mb-6">{text}</p>
+    <div className="relative sm:text-xl sm:leading-snug text-center bg-green-600 rounded-xl py-5 px-8 text-white mx-5 items-center flex flex-col">
+      <p className="text-center mb-6">{text}</p>
       <Link
         to={link}
-        className="absolute bottom-[-15px] bg-white text-green-600 font-semibold text-lg px-6 py-2 rounded-lg text-center hover:bg-green-800 hover:text-white shadow-md hover:shadow-lg"
+        className="absolute bottom-[-15px] bg-white text-green-600 font-semibold px-6 py-3 rounded-lg text-center hover:bg-green-800 hover:text-white shadow-md hover:shadow-lg"
       >
         {btnText}
       </Link>

@@ -23,7 +23,9 @@ import {
     website,
     finger,
     cat,
-    store
+    store,
+    linkedin,
+    email
 } from "../assets/icons";
 
 export const skills = [
@@ -190,7 +192,7 @@ export const projects = [
         iconUrl: website,
         theme: 'btn-back-white',
         name: 'Portfolio Website (this one!)',
-        description: `- Developed React, Tailwind, and Vite portfolio website focused on self-made 3D assets of my pet cat in Blender, rendered on DOM with WebGL and handling character animations and interactions with R3F and Three.JS \n- Implemented email solution using Email.JS with animated 3D feedback and environment variables \n- Designed responsive 3D viewer with GLTF pipeline optimization, React Suspense loading, and cross-component state management for smooth transitions between pages and sections\n- Desktop compatibility only for now!`,
+        description: `- Developed React, Tailwind, and Vite portfolio website focused on self-made 3D assets of my pet cat in Blender, rendered on DOM with WebGL and handling character animations and interactions with R3F and Three.JS \n- Implemented email solution using Email.JS with animated 3D feedback and environment variables \n- Designed responsive 3D viewer with GLTF pipeline optimization, React Suspense loading, and cross-component state management for smooth transitions between pages and sections`,
         link: 'https://github.com/sofia-pham/sofiapham.git',
     },
     {
@@ -214,20 +216,25 @@ export const projects = [
         description: `- Designed and implemented a comprehensive online database management system for a clothing store, integrating a PHP-based frontend with Oracle SQL as the backend \n- Key features: customer management (add, update, and search for customer information) with real-time results displayed on GUI, order management (search based on customer details, order IDs, and date filters), and inventory management (add, update, and track inventory)\nLINK TO BE UPDATED SOON.`,
         link: 'https://www.youtube.com/watch?v=8ELbX5CMomE',
     },
-    // {
-    //     iconUrl: ttt,
-    //     theme: 'btn-back-white',
-    //     name: 'Tic Tac Toe Game',
-    //     description: '',
-    //     link: '',
-    // },
+    {
+        iconUrl: ttt,
+        theme: 'btn-back-white',
+        name: 'Tic Tac Toe Game',
+        description: '- Developed a simple 3x3 tic-tac-toe game where users play against the computer\n- Implemented game logic using recursion, loops, and randomized actions for decision-making',
+        link: 'https://github.com/sofia-pham/3x3tictactoe',
+    },
 ];
 
 export const socialLinks = [
     {
-        name: 'Contact',
-        iconUrl: contact,
-        link: '/contact',
+        name: 'Email',
+        iconUrl: email,
+        link: 'mailto: sof.pham@gmail.com',
+    },
+    {
+        name: 'LinkedIn',
+        iconUrl: linkedin,
+        link: 'https://www.linkedin.com/in/sofia-pham/',
     },
     {
         name: 'GitHub',

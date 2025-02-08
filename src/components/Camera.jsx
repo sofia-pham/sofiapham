@@ -1,23 +1,3 @@
-// import { useFrame, useThree } from "@react-three/fiber";
-// import * as THREE from "three";
-
-// const Camera = () => {
-//   const { camera } = useThree(); // Access the camera object
-
-//   useFrame(() => {
-//     if (window.innerWidth < 960) {
-//       camera.position.set(0, 2, 12);
-//     } else {
-//       camera.position.set(2, 3, 10);
-//       camera.lookAt(new THREE.Vector3(0, 0, 0)); // Look at the center of the room
-//     }
-//   });
-
-//   return null;
-// };
-
-// export default Camera;
-
 import { useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 
@@ -26,17 +6,16 @@ const Camera = () => {
 
   useFrame(() => {
     const width = window.innerWidth;
-
     if (width < 480) {
-      camera.position.set(0, 2, 14);
+      camera.position.set(2, 4, 15);
     } else if (width < 768) {
-      camera.position.set(1, 2.5, 13);
+      camera.position.set(2, 4, 14);
     } else if (width < 1024) {
-      camera.position.set(1.5, 3, 11);
+      camera.position.set(1.5, 4, 12);
     } else if (width < 1440) {
-      camera.position.set(2, 3, 10);
+      camera.position.set(2, 4, 11);
     } else {
-      camera.position.set(3, 4, 9);
+      camera.position.set(3, 4, 10);
     }
 
     camera.lookAt(new THREE.Vector3(0, 0, 0));

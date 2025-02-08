@@ -17,8 +17,6 @@ const Navbar = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // TODO: pls remember to do mobile compatibility
-
   return (
     <header className="header">
       <NavLink
@@ -29,17 +27,17 @@ const Navbar = () => {
           SOFIA PHAM
         </p>
       </NavLink>
-      {/* {isMobile ? (
+      {isMobile ? (
         // Mobile Menu
         <>
           <button
-            className="text-2xl text-white"
+            className="text-2xl font-bold text-green-800"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? "✖" : "☰"}
           </button>
           {isOpen && (
-            <nav className="absolute top-16 left-0 w-full bg-white shadow-lg flex flex-col items-center space-y-6 py-6">
+            <nav className="absolute top-16 left-0 w-full z-50 font-semibold bg-white shadow-lg flex flex-col items-center space-y-6 py-6">
               <NavLink
                 to="/about"
                 className={({ isActive }) =>
@@ -70,34 +68,34 @@ const Navbar = () => {
             </nav>
           )}
         </>
-      ) : ( */}
-      <nav className="flex text-lg gap-7 font-medium">
-        <NavLink
-          to="/about"
-          className={({ isActive }) =>
-            isActive ? "text-green-600" : "text-black"
-          }
-        >
-          About
-        </NavLink>
-        <NavLink
-          to="/projects"
-          className={({ isActive }) =>
-            isActive ? "text-green-600" : "text-black"
-          }
-        >
-          Projects
-        </NavLink>
-        <NavLink
-          to="/contact"
-          className={({ isActive }) =>
-            isActive ? "text-green-600" : "text-black"
-          }
-        >
-          Contact
-        </NavLink>
-      </nav>
-      {/* )} */}
+      ) : (
+        <nav className="flex text-lg gap-7 font-medium">
+          <NavLink
+            to="/about"
+            className={({ isActive }) =>
+              isActive ? "text-green-600" : "text-black"
+            }
+          >
+            About
+          </NavLink>
+          <NavLink
+            to="/projects"
+            className={({ isActive }) =>
+              isActive ? "text-green-600" : "text-black"
+            }
+          >
+            Projects
+          </NavLink>
+          <NavLink
+            to="/contact"
+            className={({ isActive }) =>
+              isActive ? "text-green-600" : "text-black"
+            }
+          >
+            Contact
+          </NavLink>
+        </nav>
+      )}
     </header>
   );
 };
