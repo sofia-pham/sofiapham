@@ -13,6 +13,7 @@ import { Home, About, Projects, Contact } from "./pages";
 
 import ReactGA from "react-ga4";
 import React, { useEffect } from "react";
+import ScrollTop from "./components/ScrollTop";
 
 const MEASUREMENT_ID = import.meta.env.VITE_GOOGLE_ANALYTICS_MEASUREMENT_ID;
 ReactGA.initialize(MEASUREMENT_ID);
@@ -36,6 +37,7 @@ const App = () => {
     <main className="bg-slate-300/20 h-full min-h-screen">
       <Router>
         <Analytics />
+        <ScrollTop />
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />

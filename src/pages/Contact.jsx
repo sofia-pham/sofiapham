@@ -78,7 +78,7 @@ const Contact = () => {
   const adjustCatForScreen = () => {
     let screenScale, screenPosition, shadow;
 
-    if (window.innerWidth < 960) {
+    if (window.innerWidth <= 960) {
       screenScale = [1.3, 1.3, 1.3];
       screenPosition = [0, -2.3, 0];
       shadow = [0, -2.3, 0];
