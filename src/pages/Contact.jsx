@@ -201,7 +201,7 @@ const Contact = () => {
           ))}
         </div>
       </div>
-      <div className="w-full flex justify-center items-center pt-6">
+      <div className="w-full justify-center items-center pt-4">
         <h1 className="text-gray-500 font-semibold text-center text-sm">
           💖 Thank you for stopping by! 😊
         </h1>

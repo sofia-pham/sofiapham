@@ -45,10 +45,9 @@ const About = () => {
         />
         <div className="flex flex-col gap-3">
           <p>
-            My name is Sofia Pham (she/her), and I'm a CS student at TMU. I
-            discovered my passion for coding and have never looked back since!
-            I’m particularly interested in software development, with a focus on
-            web and game development.
+            I'm a CS student at TMU. I discovered my passion for coding and have
+            never looked back since! I’m particularly interested in software
+            development, with a focus on web and game development.
           </p>
           <h2 className="font-semibold">🌈 Goals for 2025</h2>
           <ul>

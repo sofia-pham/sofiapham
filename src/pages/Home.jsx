@@ -8,7 +8,6 @@ import HomeInfo from "../components/HomeInfo";
 import * as THREE from "three";
 import Camera from "../components/Camera";
 import { useEffect } from "react";
-import { cat } from "../assets/icons";
 
 const Home = () => {
   const [isRotating, setIsRotating] = useState(false);
@@ -30,29 +29,29 @@ const Home = () => {
   // to make room look nice on all devices
   const adjustRoomForScreen = () => {
     let screenScale, screenPosition;
-    let rotation = [0.2, -50, -0.05];
+    let screenRotation = [0.2, -50, -0.05];
 
-    if (window.innerWidth < 768) {
+    if (window.innerWidth <= 1024) {
       screenScale = [0.8, 0.8, 0.8];
-      screenPosition = [1, -3, 2];
+      screenPosition = [0.9, -3, 2];
     } else {
       screenScale = [1, 1, 1];
       screenPosition = [2.5, -4, 2.6];
     }
 
-    return [screenScale, screenPosition, rotation];
+    return [screenScale, screenPosition, screenRotation];
   };
   const [roomScale, roomPosition, roomRotation] = adjustRoomForScreen();
 
   const adjustCatForScreen = () => {
     let catScale, catRotation, catPosition;
 
-    if (window.innerWidth < 768) {
+    if (window.innerWidth <= 1024) {
       catScale = [0.8, 0.8, 0.8];
       switch (currentStage) {
         case 1:
           catPosition = new THREE.Vector3(-3.3, -2.2, 3.3);
-          catRotation = [0, 0, 0];
+          catRotation = [0, 0.5, 0];
           break;
         case 2:
           catPosition = new THREE.Vector3(-1, -1.6, 1.4);
@@ -63,7 +62,7 @@ const Home = () => {
           catRotation = [0, 4, 0];
           break;
         case 4:
-          catPosition = new THREE.Vector3(4.7, -1.8, 2);
+          catPosition = new THREE.Vector3(4.4, -1.9, 2.2);
           catRotation = [0, 5.5, 0];
           break;
       }
@@ -94,12 +93,21 @@ const Home = () => {
 
   const [catScale, catRotation, catPosition] = adjustCatForScreen();
 
-  const bubblePositions = [
-    { x: screenWidth * 0.335, y: screenHeight * -0.82 },
-    { x: screenWidth * 0.48, y: screenHeight * -0.655 },
-    { x: screenWidth * 0.635, y: screenHeight * -0.765 },
-    { x: screenWidth * 0.86, y: screenHeight * -0.4 },
-  ];
+  const bubblePositions =
+    window.innerWidth <= 1024
+      ? [
+          { x: screenWidth * 0.05, y: screenHeight * -0.69 },
+          { x: screenWidth * 0.32, y: screenHeight * -0.61 },
+          { x: screenWidth * 0.67, y: screenHeight * -0.67 },
+          { x: screenWidth * 0.9, y: screenHeight * -0.55 },
+        ]
+      : [
+          { x: screenWidth * 0.35, y: screenHeight * -0.79 },
+          { x: screenWidth * 0.475, y: screenHeight * -0.645 },
+          { x: screenWidth * 0.62, y: screenHeight * -0.75 },
+          { x: screenWidth * 0.84, y: screenHeight * -0.45 },
+        ];
+
   return (
     <section className="w-full h-screen relative">
       <div className="absolute bottom-28 left-0 right-0 z-10 flex items-center justify-center">
@@ -109,7 +117,7 @@ const Home = () => {
         {bubblePositions.map((pos, index) => (
           <div
             key={index}
-            className="absolute w-8 h-8 bg-green-800 opacity-50 rounded-full animate-bounce"
+            className="absolute lg:w-8 lg:h-8 w-6 h-6 bg-yellow-700 opacity-60 rounded-full animate-bounce"
             style={{
               top: `${pos.y}px`,
               left: `${pos.x}px`,

@@ -19,18 +19,24 @@ const Cat = ({ isRotating, setCurrentStage, currentStage, ...props }) => {
       const clickX = e.clientX - rect.left;
       const canvasWidth = rect.width;
 
-      // Only activate for right 75% of screen
-      if (clickX < canvasWidth * 0.25) return;
+      if (window.innerWidth > 1024) {
+        // Only activate for right 75% of screen
+        if (clickX < canvasWidth * 0.25) return;
 
-      // Divide right 75% into 3 vertical sections (25% each)
-      const sectionWidth = (canvasWidth * 0.75) / 4;
-      const sectionIndex = Math.floor(
-        (clickX - canvasWidth * 0.25) / sectionWidth
-      );
+        const sectionWidth = (canvasWidth * 0.75) / 4;
+        const sectionIndex = Math.floor(
+          (clickX - canvasWidth * 0.25) / sectionWidth
+        );
 
-      // Map sections to stages 2-4
-      const newStage = Math.min(4, 1 + sectionIndex);
-      setCurrentStage(newStage);
+        const newStage = Math.min(4, 1 + sectionIndex);
+        setCurrentStage(newStage);
+      } else {
+        const sectionWidth = canvasWidth / 4;
+        const sectionIndex = Math.floor(clickX / sectionWidth);
+
+        const newStage = Math.min(4, 1 + sectionIndex);
+        setCurrentStage(newStage);
+      }
     };
 
     canvas.addEventListener("click", handleClick);
@@ -41,7 +47,7 @@ const Cat = ({ isRotating, setCurrentStage, currentStage, ...props }) => {
     if (isRotating) {
       actions["walking1"]?.reset().play();
     } else {
-      actions["walking1"]?.fadeOut(0.5).stop();
+      actions["walking1"]?.fadeOut(0.5);
       switch (currentStage) {
         case 1:
           actions["waving"]?.reset().play();
@@ -62,7 +68,7 @@ const Cat = ({ isRotating, setCurrentStage, currentStage, ...props }) => {
 
     return () => {
       Object.values(actions).forEach((action) => {
-        action?.fadeOut(0.5).stop();
+        action?.fadeOut(0.5);
       });
     };
   }, [actions, isRotating, currentStage]);
