@@ -1,7 +1,12 @@
 //type rafce and press tab to create a react arrow function component
 // import React from "react";
 
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import {
+  Route,
+  BrowserRouter as Router,
+  Routes,
+  useLocation,
+} from "react-router-dom";
 import Navbar from "./components/Navbar";
 
 import { Home, About, Projects, Contact } from "./pages";
@@ -9,20 +14,28 @@ import { Home, About, Projects, Contact } from "./pages";
 import ReactGA from "react-ga4";
 import React, { useEffect } from "react";
 
-const App = () => {
-  const MEASUREMENT_ID = import.meta.env.GOOGLE_ANALYTICS_MEASUREMENT_ID;
-  ReactGA.initialize(MEASUREMENT_ID);
+const MEASUREMENT_ID = import.meta.env.VITE_GOOGLE_ANALYTICS_MEASUREMENT_ID;
+ReactGA.initialize(MEASUREMENT_ID);
+
+const Analytics = () => {
+  const location = useLocation();
+
   useEffect(() => {
     ReactGA.send({
       hitType: "pageview",
-      page: window.location.pathname,
+      page: location.pathname,
       title: document.title,
     });
-  }, []);
+  }, [location]);
 
+  return null;
+};
+
+const App = () => {
   return (
     <main className="bg-slate-300/20 h-full min-h-screen">
       <Router>
+        <Analytics />
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
