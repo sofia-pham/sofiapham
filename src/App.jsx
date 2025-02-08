@@ -11,7 +11,7 @@ import React, { useEffect } from "react";
 
 const App = () => {
   const MEASUREMENT_ID = import.meta.env.GOOGLE_ANALYTICS_MEASUREMENT_ID;
-  ReactGA.initialize(`${MEASUREMENT_ID}`);
+  ReactGA.initialize(MEASUREMENT_ID);
   useEffect(() => {
     ReactGA.send({
       hitType: "pageview",
