@@ -62,7 +62,7 @@ The 3D room is a combination of **original assets** (created in Blender) and **p
 - Tailwind CSS for making styling efficient and enjoyable
 - [Mixamo](https://www.mixamo.com/) for animations on rigged models
 - [Poly Pizza](https://poly.pizza/) for pre-existing assets
-  <sub>
+  <small>
   - Fiddle-leaf Plant by Poly by Google [CC-BY](https://creativecommons.org/licenses/by/3.0/) via [Poly Pizza](https://poly.pizza/m/2ag6_uuqsnb)
   - Plant - White Pot by Jakers_H [CC-BY](https://creativecommons.org/licenses/by/3.0/) via [Poly Pizza](https://poly.pizza/m/7ig0HcyfT93)
   - tulip 3 by Hugo Gibson [CC-BY](https://creativecommons.org/licenses/by/3.0/) via [Poly Pizza](https://poly.pizza/m/2zT-C10njmX)
@@ -90,4 +90,4 @@ The 3D room is a combination of **original assets** (created in Blender) and **p
   - Cardboard Boxes by Nick Slough [CC-BY](https://creativecommons.org/licenses/by/3.0/) via [Poly Pizza](https://poly.pizza/m/pMdXdrUHvX)
   - Standing lamp by jeremy [CC-BY](https://creativecommons.org/licenses/by/3.0/) via [Poly Pizza](https://poly.pizza/m/7AqWZQIaCQf)
   - Bean Bag by J-Toastie [CC-BY](https://creativecommons.org/licenses/by/3.0/) via [Poly Pizza](https://poly.pizza/m/nMZz79A5ru)
-    </sub>
+    </small>
