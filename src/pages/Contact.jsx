@@ -1,5 +1,5 @@
 import { Canvas } from "@react-three/fiber";
-import { Suspense, useRef, useState } from "react";
+import { Suspense, useState } from "react";
 import CatContact from "../models/CatContact";
 import Loader from "../components/Loader";
 import { ContactShadows } from "@react-three/drei";
@@ -7,11 +7,8 @@ import useAlert from "../hooks/useAlert";
 import Alert from "../components/Alert";
 import emailjs from "@emailjs/browser";
 import { socialLinks } from "../constants";
-import { Link } from "react-router-dom";
 
 const Contact = () => {
-  const formRef = useRef(null);
-
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [isLoading, setIsLoading] = useState(false);
   const [currentAnimation, setCurrentAnimation] = useState("walking1");
@@ -22,10 +19,25 @@ const Contact = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  // validate email address
+  const validateEmail = (email) => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsLoading(true);
     setCurrentAnimation("typing");
+
+    if (!validateEmail(form.email)) {
+      showAlert({
+        show: true,
+        text: "Please enter a valid email address.",
+        type: "danger",
+      });
+      return;
+    }
 
     emailjs
       .send(
@@ -93,13 +105,13 @@ const Contact = () => {
   const [catScale, catPosition, catShadow] = adjustCatForScreen();
 
   return (
-    <section className="flex max-h-full flex-col max-container">
+    <section className="w-full max-container">
       {alert.show && <Alert {...alert} />}
-      <div className="flex flex-col lg:flex-row w-full">
-        <div className="flex-1 min-w-[50%] flex flex-col">
+      <div className="flex flex-col lg:flex-row">
+        <div className="lg:w-[50%] w-full">
           <h1 className="head-text">Contact Me</h1>
           <form
-            className="w-full flex flex-col gap-7 mt-14"
+            className="flex flex-col gap-7 mt-10"
             name="contact"
             onSubmit={handleSubmit}
           >
@@ -156,7 +168,7 @@ const Contact = () => {
             </button>
           </form>
         </div>
-        <div className="lg:w-[50%] w-full lg:h-auto md:h-[550px] h-[400px] flex justify-center items-center relative">
+        <div className="lg:w-[50%] w-full lg:h-auto md:h-[550px] h-[400px]">
           <Canvas
             shadows
             camera={{ position: [0, 0, 5], fov: 75, near: 0.1, far: 100 }}
@@ -182,7 +194,7 @@ const Contact = () => {
           </Canvas>
         </div>
       </div>
-      <div className="mt-auto w-full flex flex-col justify-center items-center text-center sm:pt-8 lg:pt-20">
+      <div className="flex flex-col sm:pt-8 lg:pt-18">
         <div className="flex justify-center items-center gap-8">
           {socialLinks.map((link) => (
             <a
@@ -201,7 +213,7 @@ const Contact = () => {
           ))}
         </div>
       </div>
-      <div className="w-full justify-center items-center pt-4">
+      <div className="pt-6">
         <h1 className="text-gray-500 font-semibold text-center text-sm">
           💖 Thank you for stopping by! 😊
         </h1>
