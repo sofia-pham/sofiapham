@@ -1,5 +1,4 @@
 //type rafce and press tab to create a react arrow function component
-// import React from "react";
 
 import {
   Route,
