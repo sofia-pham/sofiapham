@@ -189,6 +189,7 @@ const Contact = () => {
                 currentAnimation={currentAnimation}
                 position={catPosition}
                 scale={catScale}
+                rotation={[0, -0.25, 0.05]}
               />
             </Suspense>
           </Canvas>

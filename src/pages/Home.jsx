@@ -31,7 +31,7 @@ const Home = () => {
         {bubblePositions.map((pos, index) => (
           <div
             key={index}
-            className="absolute lg:w-8 lg:h-8 w-6 h-6 bg-blue-500 opacity-70 rounded-full animate-bounce"
+            className="absolute lg:w-8 lg:h-8 w-6 h-6 bg-fuchsia-600 opacity-70 rounded-full animate-bounce"
             style={{
               top: `${pos.y}px`,
               left: `${pos.x}px`,

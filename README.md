@@ -54,6 +54,8 @@ The 3D room is a combination of **original assets** (created in Blender) and **p
 
 - Optimize 3D assets to shorten load time
 - Detect WebGL/graphics acceleration on browsers
+- Make loading progress bar for Home page
+- Make floating bubbles more intuitive to click
 
 ### 🙏 Acknowledgments
 

@@ -13,8 +13,11 @@ const Loader = () => {
             className="rounded-full "
           />
         </div>
-        <p className="text-gray-500 text-center lg:text-lg font-semibold text-sm mt-4">
-          LOADING...
+        <p className="text-black-500 text-center lg:text-lg font-semibold text-sm mt-4">
+          LOADING . . .
+        </p>
+        <p className="text-gray-500 text-center sm:text-xs text-sm mt-4">
+          pretty please with a cherry on top use graphics acceleration 🥺🙏
         </p>
       </div>
     </Html>
