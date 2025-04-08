@@ -8,14 +8,14 @@ import { useFrame } from "@react-three/fiber";
 
 const CatContact = ({ currentAnimation, ...props }) => {
   const catRef = useRef();
-  const { nodes, materials, scene, animations } = useGLTF(catScene);
+  const { nodes, materials, animations } = useGLTF(catScene);
   const { actions } = useAnimations(animations, catRef);
 
   useFrame((state) => {
     const target = new THREE.Vector3(state.pointer.x, state.pointer.y - 0.5, 2);
     catRef.current.getObjectByName("spine006").lookAt(target);
 
-    if (window.innerWidth < 960 && currentAnimation === "typing") {
+    if (window.innerWidth <= 960 && currentAnimation === "typing") {
       const newTarget = new THREE.Vector3(0, 0.2, 2);
       catRef.current.getObjectByName("spine006").lookAt(newTarget);
     } else if (currentAnimation === "typing") {

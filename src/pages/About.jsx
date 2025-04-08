@@ -4,11 +4,9 @@ import {
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 
-import React from "react";
+import { useState, useEffect } from "react";
 import { skills, experiences, extracurriculars } from "../constants";
 import CTA from "../components/CTA";
-import { useState } from "react";
-import { useEffect } from "react";
 
 const About = () => {
   const [showButton, setShowButton] = useState(false);
@@ -41,6 +39,7 @@ const About = () => {
         <img
           src="https://media.licdn.com/dms/image/v2/D5603AQFa5rmWNdYnJw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1702377847715?e=1744243200&v=beta&t=nXQkOYWxD9kYdamjcNwR6SRSWqOtSOj76_i7sUsMv5Y"
           alt="Sofia"
+          loading="lazy"
           className="w-52 h-52 rounded-lg self-center"
         />
         <div className="flex flex-col gap-3">
@@ -141,15 +140,15 @@ const About = () => {
         <h3 className="subhead-text">Leadership</h3>
         <div className="mt-10 flex">
           <VerticalTimeline>
-            {extracurriculars.map((extracurricular, index) => (
+            {extracurriculars.map((extracurricular) => (
               <VerticalTimelineElement
-                key={extracurricular.index}
+                key={extracurricular.title}
                 date={extracurricular.date}
                 icon={
                   <div className="flex justify-center items-center w-full h-full">
                     <img
                       src={extracurricular.icon}
-                      alt={extracurricular.index}
+                      alt={extracurricular.title}
                       className="w-[60%] h-[60%] object-contain"
                     />
                   </div>

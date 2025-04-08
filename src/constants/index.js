@@ -196,13 +196,6 @@ export const projects = [
         link: 'https://github.com/sofia-pham/sofiapham.git',
     },
     {
-        iconUrl: cat,
-        theme: 'btn-back-white',
-        name: 'Cat Of The Day',
-        description: 'WORK IN PROGRESS. LINK TO BE UPDATED SOON.',
-        link: 'https://www.youtube.com/watch?v=8ELbX5CMomE',
-    }, 
-    {
         iconUrl: finger,
         theme: 'btn-back-white',
         name: 'AFK Scroller',
@@ -212,9 +205,9 @@ export const projects = [
     {
         iconUrl: store,
         theme: 'btn-back-white',
-        name: 'Online Clothing Store DBMS',
-        description: `- Designed and implemented a comprehensive online database management system for a clothing store, integrating a PHP-based frontend with Oracle SQL as the backend \n- Key features: customer management (add, update, and search for customer information) with real-time results displayed on GUI, order management (search based on customer details, order IDs, and date filters), and inventory management (add, update, and track inventory)\nLINK TO BE UPDATED SOON.`,
-        link: 'https://www.youtube.com/watch?v=8ELbX5CMomE',
+        name: 'South East Collective DBMS',
+        description: `- Designed and implemented a comprehensive online database management system for a clothing store, integrating a HTML/CSS frontend, PHP backend, and Oracle SQL database hosted on a virtual server\n- Leveraged HTTP POST requests to perform CRUD operations on customers, orders, and inventory with filters and pagination, to quickly display real-time results on the DOM`,
+        link: 'https://github.com/sofia-pham/SEC-DBMS',
     },
     {
         iconUrl: ttt,
@@ -223,6 +216,13 @@ export const projects = [
         description: '- Developed a simple 3x3 tic-tac-toe game where users play against the computer\n- Implemented game logic using recursion, loops, and randomized actions for decision-making',
         link: 'https://github.com/sofia-pham/3x3tictactoe',
     },
+    {
+        iconUrl: cat,
+        theme: 'btn-back-white',
+        name: 'Cat Of The Day',
+        description: 'WORK IN PROGRESS. LINK TO BE UPDATED SOON.',
+        link: 'https://www.youtube.com/watch?v=8ELbX5CMomE',
+    }, 
 ];
 
 export const socialLinks = [
