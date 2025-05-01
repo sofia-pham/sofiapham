@@ -37,7 +37,7 @@ const About = () => {
       </h1>
       <div className="mt-10 flex lg:flex-row flex-col gap-3 text-slate-500">
         <img
-          src="/public/profile.jpeg"
+          src="/profile.jpeg"
           alt="Sofia"
           loading="lazy"
           className="w-52 h-52 rounded-lg self-center"
