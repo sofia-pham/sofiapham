@@ -1,4 +1,4 @@
-import { cgi, ehs, cscu } from "../assets/images";
+import { cgi, ehs, cscu, bmo } from "../assets/images";
 import {
     contact,
     css,
@@ -25,7 +25,10 @@ import {
     cat,
     store,
     linkedin,
-    email
+    email, 
+    postgresql,
+    django,
+    angular,
 } from "../assets/icons";
 
 export const skills = [
@@ -38,6 +41,16 @@ export const skills = [
         imageUrl: java,
         name: "Java",
         type: "Backend",
+    },
+    {
+        imageUrl: php,
+        name: "PHP",
+        type: "Backend",
+    },
+    {
+        imageUrl: typescript,
+        name: "TypeScript",
+        type: "Frontend",
     },
     {
         imageUrl: javascript,
@@ -55,14 +68,19 @@ export const skills = [
         type: "Frontend",
     },
     {
-        imageUrl: php,
-        name: "PHP",
-        type: "Backend",
-    },
-    {
         imageUrl: mongodb,
         name: "MongoDB",
         type: "Database",
+    },
+    {
+        imageUrl: postgresql,
+        name: "PostgreSQL",
+        type: "Database",
+    },
+    {
+        imageUrl: angular,
+        name: "Angular",
+        type: "Frontend",
     },
     {
         imageUrl: nextjs,
@@ -70,14 +88,19 @@ export const skills = [
         type: "Frontend",
     },
     {
-        imageUrl: nodejs,
-        name: "Node.js",
-        type: "Backend",
-    },
-    {
         imageUrl: react,
         name: "React",
         type: "Frontend",
+    },
+    {
+        imageUrl: django,
+        name: "Django",
+        type: "Backend",
+    },
+    {
+        imageUrl: nodejs,
+        name: "Node.js",
+        type: "Backend",
     },
     {
         imageUrl: tailwindcss,
@@ -87,11 +110,6 @@ export const skills = [
     {
         imageUrl: threejs,
         name: "Three.js",
-        type: "Frontend",
-    },
-    {
-        imageUrl: typescript,
-        name: "TypeScript",
         type: "Frontend",
     },
     {
@@ -117,6 +135,18 @@ export const skills = [
 ];
 
 export const experiences = [
+    {
+        title: "Software Developer (Co-op)",
+        company_name: "BMO",
+        icon: bmo,
+        iconBg: "#c1e1ec",
+        date: "January 2026 - Present",
+        points: [
+            "Built AI-driven onboarding feature end-to-end using Angular, Typescript, RxJS, and Lexicon Components on the frontend, and Python and Django REST Framework on the backend, enabling real-time validation, debounced input handling, and rating-based feedback to improve data quality at submission.",
+            "Integrated secure backend workflows with AWS Cognito, authenticating frontend requests and orchestrating calls to GenAI Lab API, including payload validation, response normalization, and structured persistence via REST APIs in PostgreSQL database.",
+            "Implemented compliance-ready data persistence and navigation control, storing AI evaluation results for auditability and deduplication, while coordinating async AI status with UI loading and progression gating to reduce manual review effort by predicted 40%.",
+        ]
+    },
     {
         title: "Data Scientist (Co-op)",
         company_name: "CGI",

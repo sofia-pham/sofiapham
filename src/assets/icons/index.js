@@ -27,7 +27,9 @@ import finger from './finger.svg'
 import cat from './cat.svg'
 import store from './store.svg'
 import email from './email.svg'
-
+import angular from './angular.svg'
+import django from './django.svg'
+import postgresql from './postgresql.svg'
 
 export {
     css,
@@ -59,4 +61,7 @@ export {
     cat,
     store,
     email,
+    angular,
+    django, 
+    postgresql,
 }
