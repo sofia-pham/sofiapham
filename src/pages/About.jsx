@@ -42,13 +42,14 @@ const About = () => {
           loading="lazy"
           className="w-52 h-52 rounded-lg self-center"
         />
-        <div className="flex flex-col gap-3">
+        <div className=" gap-3">
           <p>
-            I'm a CS student at TMU. I discovered my passion for coding and have
-            never looked back since! I’m particularly interested in software
+            I'm a Software Developer at BMO, recently graduated from CS at TMU
+            (August 2026). I discovered my passion for coding and have never
+            looked back since! I’m particularly interested in software
             development, with a focus on web and game development.
           </p>
-          <h2 className="font-semibold">🌈 Goals for 2025</h2>
+          {/* <h2 className="font-semibold">🌈 Goals for 2025</h2>
           <ul>
             <li>
               - Master data structures and algorithms to ace technical
@@ -62,7 +63,7 @@ const About = () => {
               - Develop and deploy a full-stack web application/game to enhance
               my portfolio
             </li>
-          </ul>
+          </ul> */}
         </div>
       </div>
       <div className="py-16 flex flex-col">

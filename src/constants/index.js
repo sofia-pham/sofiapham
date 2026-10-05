@@ -135,16 +135,29 @@ export const skills = [
 ];
 
 export const experiences = [
-    {
-        title: "Software Developer (Co-op)",
+        {
+        title: "Software Developer",
         company_name: "BMO",
         icon: bmo,
         iconBg: "#c1e1ec",
-        date: "January 2026 - Present",
+        date: "September 2026 - Present",
         points: [
-            "Built AI-driven onboarding feature end-to-end using Angular, Typescript, RxJS, and Lexicon Components on the frontend, and Python and Django REST Framework on the backend, enabling real-time validation, debounced input handling, and rating-based feedback to improve data quality at submission.",
-            "Integrated secure backend workflows with AWS Cognito, authenticating frontend requests and orchestrating calls to GenAI Lab API, including payload validation, response normalization, and structured persistence via REST APIs in PostgreSQL database.",
-            "Implemented compliance-ready data persistence and navigation control, storing AI evaluation results for auditability and deduplication, while coordinating async AI status with UI loading and progression gating to reduce manual review effort by predicted 40%.",
+            "Refactoring authorized signer lookup APIs in Python to bypass database queries and fetch data directly from downstream microservices (APMS) via Cognito JWT authentication, reducing lookup latency and API overhead.",
+            "Updating client profile search workflows in Angular to consume optimized APMS endpoints, enabling real-time profile rendering and faster UI updates.",
+        ]
+    },
+        {
+        title: "Software Developer (Internship)",
+        company_name: "BMO",
+        icon: bmo,
+        iconBg: "#c1e1ec",
+        date: "January 2026 - August 2026",
+        points: [
+            "Built end-to-end AI onboarding features using Angular, TypeScript, Python, Django, and AWS, delivering real-time validation and compliance workflows reducing manual review effort by ~35%.",
+            "Developed secure REST APIs integrating with internal GenAI services using AWS Cognito, implementing payload validation, structured PostgreSQL persistence, and audit logging.",
+            "Contributed to an AI-driven corporate extraction pipeline automating data parsing from PDF filings, significantly improving document review efficiency by ~40%.",
+            "Maintained reusable Angular Micro Frontend (MFE) component libraries published via npm and JFrog Artifactory to support a modular enterprise architecture.",
+            "Enhanced system reliability through pytest unit testing, GitHub Actions CI/CD pipelines, and production monitoring via AWS CloudWatch."
         ]
     },
     {
@@ -180,7 +193,7 @@ export const extracurriculars = [
         company_name: "Computer Science Course Union",
         icon: cscu,
         iconBg: "#c1e1ec",
-        date: "September 2024 - Present",
+        date: "September 2024 - September 2025",
         points: [
             "Managing over $15,000 in budget for the CS student body of 1000+ students, including funding from the school’s financial department and external sponsors such as Dayforce and theScore.",
             "Leading and delegating responsibilities to finance associates to maintain a 10% budget increase YoY.",
@@ -246,13 +259,13 @@ export const projects = [
         description: '- Developed a simple 3x3 tic-tac-toe game where users play against the computer\n- Implemented game logic using recursion, loops, and randomized actions for decision-making',
         link: 'https://github.com/sofia-pham/3x3tictactoe',
     },
-    {
-        iconUrl: cat,
-        theme: 'btn-back-white',
-        name: 'Cat Of The Day',
-        description: 'WORK IN PROGRESS. LINK TO BE UPDATED SOON.',
-        link: 'https://www.youtube.com/watch?v=8ELbX5CMomE',
-    }, 
+    // {
+    //     iconUrl: cat,
+    //     theme: 'btn-back-white',
+    //     name: 'Cat Of The Day',
+    //     description: 'WORK IN PROGRESS. LINK TO BE UPDATED SOON.',
+    //     link: 'https://www.youtube.com/watch?v=8ELbX5CMomE',
+    // }, 
 ];
 
 export const socialLinks = [
